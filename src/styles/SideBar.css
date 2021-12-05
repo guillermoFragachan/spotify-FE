@@ -44,7 +44,7 @@ html {
     overflow-x: hidden;
     width: calc(100% - 260px);
     /* position: absolute; */
-    /* margin-right: -260px !important; */
+    margin-right: -260px !important;
     /* margin-left: -260px !important; */
 
 }
@@ -52,6 +52,8 @@ html {
 .position-aside {
   background: #000000;
   width: 260px;
+
+  height: 90vh;
 
 }
 

@@ -18,9 +18,10 @@ function App() {
 
     </SideBar>
 
-    <PlayerBar/>
 
     </div>
+    <PlayerBar/>
+
 
     
     </BrowserRouter>

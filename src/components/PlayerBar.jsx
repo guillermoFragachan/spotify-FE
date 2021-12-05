@@ -4,7 +4,7 @@ import React from "react";
 
 const PlayerBar = () => {
     return(
-        <div className="left-fixed" style={{ width: "100%", height: "50px" }}>
+        <div className="left-fixed" >
   <nav
     className="navbar navbar-expand-lg navbar-dark background-spotify"
     style={{ height: "100%", position: "sticky", bottom: 0 }}
