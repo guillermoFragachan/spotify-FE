@@ -18,7 +18,6 @@ html {
 
 .aside-bar {
   display: flex;
-  width: 100%;
   height: 90%;
 }
 
@@ -38,14 +37,22 @@ html {
 }
 
 .music-container {
-  width: 100%;
-  overflow-y: scroll;
+  
+  /* overflow-y: scroll; */
   background: #1F1F1F;
+    height: 90vh!important;
+    overflow-x: hidden;
+    width: calc(100% - 260px);
+    /* position: absolute; */
+    /* margin-right: -260px !important; */
+    /* margin-left: -260px !important; */
+
 }
 
 .position-aside {
-  height: 90vh;
   background: #000000;
+  width: 260px;
+
 }
 
 .icons-color-size {

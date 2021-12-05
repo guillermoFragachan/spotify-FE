@@ -12,6 +12,13 @@
   #jumbo-navbar {
     background-color: #410707;
   }
+  .left-fixed{
+    position: absolute;
+    width: calc(100% - 260px)!important;
+    height: 100px!important;
+    bottom: 0px;
+    right: 0px;
+  }
   
   .card-body .dotted {
     white-space: nowrap;

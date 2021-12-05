@@ -1,9 +1,9 @@
 import React from "react";
 
-const SideBar = () => {
+const SideBar = ({children}) => {
   return (
-    <div className="aside-bar">
-      <div className="col-2 position-aside">
+    <div className="aside-bar"  >
+      <div className=" position-aside">
         <div>
           <a href>
             <img
@@ -165,7 +165,11 @@ const SideBar = () => {
             </p>
           </a>
         </div>
+
       </div>
+      {children}
+
+
     </div>
   );
 };

@@ -10,7 +10,17 @@ const aComposeThatAlwaysWorks = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || c
 
 export const initialState = {
     
-   
+    songs: {
+        category: [],
+        rockSongs: [],
+        popSongs: []
+        },
+  
+      songInformation:{
+                      
+          
+      },
+      
    
   }
   const configureStore = createStore(mainReducer, initialState, aComposeThatAlwaysWorks(applyMiddleware(thunk)))
