@@ -1,0 +1,549 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
+* {
+  margin: 0;
+}
+
+html {
+  overflow-y: hidden;
+}
+
+.container-master {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.aside-bar {
+  display: flex;
+  width: 100%;
+  height: 90%;
+}
+
+.fluid-padding {
+  padding: 0;
+  height: 100%;
+}
+
+#logo-spotify {
+  width: 70%;
+  height: auto;
+  min-height: 25px;
+  min-width : 150px;
+  max-width : 70%;
+  margin-top: 20px;
+  padding: 0 30px;
+}
+
+.music-container {
+  width: 100%;
+  overflow-y: scroll;
+  background: #1F1F1F;
+}
+
+.position-aside {
+  height: 90vh;
+  background: #000000;
+}
+
+.icons-color-size {
+  color: white;
+  font-size: 1.5rem;
+  margin-left: 15px;
+  font-weight: normal;
+}
+
+#logo-spotify {
+  width: 70%;
+  height: auto;
+  min-height: 25px;
+  min-width : 150px;
+  max-width : 70%;
+  margin-top: 20px;
+  padding: 0 30px;
+}
+
+.hr-styled {
+  background: white;
+  margin-left: 30px;
+}
+
+.section-side {
+  color: white;
+  margin-left: 15px;
+  margin-top: 20px;
+}
+
+a:link {
+  text-decoration: none !important;
+}
+
+.section-selected-style:active {
+  background: #282828;
+  border-radius: 5px;
+}
+
+.section-selected-style {
+  margin-top: 25px;
+  height: 40px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.section-selected-style-list {
+  height: 40px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.section-selected-style-list:active {
+  background: #282828;
+  border-radius: 5px;
+}
+
+.section-selected-style-list-bottom {
+  margin-top: 30px;
+  margin-bottom: 0;
+  margin-left: 15px;
+}
+
+.section-selected-style-list-lower {
+  height: 40px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+#scrollable-section {
+  overflow-y: auto;
+  height: 45% !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4d4d4d;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6e6c6c;
+}
+
+li {
+  list-style: none;
+  padding: 0;
+  margin-left: -10px;
+  color: white;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.text-download {
+  font-size: 1.2rem;
+  color: white;
+  margin-left: 10px;
+}
+
+.background-spotify {
+  background: #181818;
+}
+
+.icon-bottom-nav {
+  color: #535353;
+  font-size: 1.1rem;
+  margin-left: 15px;
+  font-weight: normal;
+}
+
+.icon-bottom-nav:hover {
+  color: white;
+}
+
+.music-selected {
+  width: 60px;
+  height: 60px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 70%;
+  height: 4px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  margin-left: 5px;
+  margin-bottom: 11px;
+}
+
+.slider:hover {
+  background: #1DB954;
+}
+
+.slider:hover.slider::-webkit-slider-thumb {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  opacity: 1;
+}
+
+.icon-bottom-nav-audio {
+  color: #535353;
+  font-size: 1.5rem;
+  margin-left: 15px;
+  font-weight: normal;
+}
+
+.icon-bottom-nav-audio:hover {
+  color: white;
+}
+
+.upper-title {
+  color: white;
+  text-decoration: initial !important;
+}
+
+.upper-title:hover {
+  color: white;
+}
+
+.upper-title:link:hover {
+  text-decoration: underline !important;
+}
+
+.slider1 {
+  -webkit-appearance: none;
+  width: 560px;
+  height: 4px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  margin-left: 5px;
+  margin-bottom: 15px;
+}
+
+.slider1:hover {
+  background: #1DB954;
+}
+
+.slider1:hover.slider1::-webkit-slider-thumb {
+  opacity: 1;
+}
+
+.slider1::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.slider1::-webkit-slider-thumb:hover {
+  opacity: 1;
+}
+
+.slidecontainer1 {
+  margin-right: auto;
+  margin-left: auto;
+  margin: auto;
+}
+
+.slidecontainer1::before {
+  content: "0:00";
+  color: white;
+  font-size: 9px;
+}
+
+.slidecontainer1::after {
+  content: "3:00";
+  color: white;
+  font-size: 9px;
+}
+
+/* .navbar-nav .nav-item .nav-link {
+  padding: 0;
+  margin: 0 8px;
+} */
+/* .navbar-nav .active .nav-link {
+  border-bottom: 1px solid white;
+} */
+.dropdown-menu {
+  /* aligns dropdown to the right */
+  left: unset;
+  right: 0;
+}
+
+.nav-btn span {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 120px;
+  vertical-align: middle;
+}
+
+.jumbotron {
+  background-color: transparent;
+  padding: 0;
+}
+
+.jumbotron span {
+  width: bold;
+}
+.jumbotron .header h1 {
+  font-family: "Fira Sans", sans-serif;
+  width: bolder;
+  font-size: 96px;
+}
+
+#navbar {
+  background-color: #181818;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.jumbotron .bi {
+  color: rgb(12, 125, 231);
+}
+#navbar::before {
+  content: " ";
+  height: 450px;
+  background-image: linear-gradient(
+    at right,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgb(14, 11, 11) 60%
+  );
+
+  position: left;
+  width: 100%;
+}
+
+.dropdown {
+  background-color: rgba(27, 2, 11, 0.836);
+  border-radius: 60px;
+  display: flex;
+  margin-right: 0;
+}
+.dropdown span {
+  color: white;
+}
+
+/* nav .btn-group .dropdown-menu .dropdown-item:last-child {
+  border-bottom: none;
+}
+ */
+
+.buttons-row {
+  display: flex;
+  padding: 24px 32px;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.main-content-album {
+  width: 100%;
+  background: rgb(31,31,31);
+  background: linear-gradient(0deg, rgba(31,31,31,1) 75%, rgba(139,140,140,1) 100%);
+  overflow-y: hidden;
+  margin-top: -16px;
+}
+
+.play-button {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #1DB954;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 28px;
+  cursor: pointer;
+  transition: all .02s ease-in-out; 
+}
+
+.play-button:hover {
+  transform: scale(1.1);
+}
+
+.play {
+  font-size: 40px;
+}
+
+.tr-dots {
+  margin-left: 24px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+
+#follow-button {
+  background-color: transparent;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  line-height: 16px;
+  padding: 7px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.icons-color-size-before {
+  color: white;
+  font-size: 1.1rem;
+  margin-left: 15px;
+  font-weight: normal;
+}
+
+.padding-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 32px;
+}
+
+.artist-pic {
+  width: 40px;
+  height: 40px;
+  margin: 0 16px 0 16px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.explicit-content {
+  height: 16px;
+  width: 15px;
+  background: #A9AAAB;
+  margin-top: -15px;
+  text-align: center;
+  color: black;
+  font-size: 11px;
+}
+
+.title-section {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.line-breaker {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 150px;
+  margin-top: 9px;
+}
+
+.views {
+  font-size: 14px;
+  color: white;
+  font-weight: normal;
+  margin: auto;
+}
+
+.unliked {
+  height: 16px;
+  width: 16px;
+  margin-right: 15px;
+  margin-top: 22px;
+  opacity: 0;
+}
+
+.background-list:hover{
+  background: #2A2C2F;
+  border-radius: 3px;
+  opacity: 1;
+}
+
+.background-list:hover .unliked {
+  opacity: 1;
+}
+
+.see-more {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.7);
+  margin-top: 20px;
+  opacity: 0.7;
+}
+
+.see-more:hover {
+  opacity: 1;
+}
+
+.artist-pick {
+  width: 76px;
+  height: 76px;
+  margin: 0 16px 0 0;
+}
+
+.artist-small-pic {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.artist-name {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 16px;
+  text-transform: none;
+}
+
+.name-tag {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: normal;
+  line-height: 24px;
+  color: white;
+}
+
+.name-tag:hover {
+  text-decoration: underline!important;
+  color: white;
+}
