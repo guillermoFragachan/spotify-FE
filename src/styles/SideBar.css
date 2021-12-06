@@ -43,6 +43,7 @@ html {
   overflow-x: hidden;
   width: calc(100% - 260px);
   margin-right: -260px !important;
+  color: white;
 }
 
 .position-aside {

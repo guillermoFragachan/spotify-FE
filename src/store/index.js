@@ -11,7 +11,7 @@ export const initialState = {
     rockSongs: [],
     popSongs: [],
   },
-
+  latestSearches: [],
   songInformation: null,
   songImage: null,
 };
