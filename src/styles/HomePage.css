@@ -14,9 +14,10 @@
 }
 
 .left-fixed {
-  display: flex;
+  position: absolute;
   width: calc(100%) !important;
-  height: 100px !important;
+  height: 100px !important; 
+  bottom: 0;
 }
 
 .card-body .dotted {
