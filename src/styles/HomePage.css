@@ -9,6 +9,20 @@
   height: 300px;
 }
 
+.header {
+  font-size: 96px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 96px;
+  text-transform: none;
+}
+
+.lead {
+  font-size: 16px;
+  line-height: 2;
+  margin-top: 4px;
+}
+
 #jumbo-navbar {
   background-color: #410707;
 }
@@ -16,7 +30,7 @@
 .left-fixed {
   position: absolute;
   width: calc(100%) !important;
-  height: 100px !important; 
+  height: 100px !important;
   bottom: 0;
 }
 
