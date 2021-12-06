@@ -1,5 +1,6 @@
 export const GET_SONGS = 'GET_SONGS'
 export const GET_SONG_INFO = 'GET_SONG_INFO'
+export const GET_SONG_IMAGE = 'GET_SONG_IMAGE'
 
 
 export const getSongsAction = (artistName, category) => {
@@ -57,3 +58,7 @@ export const getSongInformation = (selectedSong) => ({
     payload: selectedSong,
   })
 
+export const getSongImage = (selectedSong) => ({
+    type: GET_SONG_IMAGE,
+    payload: selectedSong,
+})

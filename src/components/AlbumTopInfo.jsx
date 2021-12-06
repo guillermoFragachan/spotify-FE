@@ -1,16 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-function AlbumTopInfo() {
+function AlbumTopInfo({ albumInfo, artistInfo, length }) {
+  const navigate = useNavigate();
+
   return (
     <div className="col-12 d-flex">
       <img
-        src="${body.data[0].album.cover_medium}"
+        src={albumInfo.cover_medium}
         className="img-fluid"
         style={{
           height: 232,
           width: 232,
           margin: 30,
           filter: "drop-shadow(30px 10px 4px #0000001f)",
+          minWidth: "232px",
         }}
       />
       <div
@@ -24,12 +28,12 @@ function AlbumTopInfo() {
         </div>
         <div>
           <h1 style={{ color: "white", fontWeight: "bold" }}>
-            ${"{"}body.data[0].album.title{"}"}
+            {albumInfo.title}
           </h1>
         </div>
         <div className="d-flex align-items-center">
           <img
-            src="${body.data[0].artist.picture_small}"
+            src={artistInfo.picture_small}
             style={{
               height: 24,
               width: 24,
@@ -45,16 +49,21 @@ function AlbumTopInfo() {
               marginBottom: 0,
               fontWeight: "bold",
             }}
+            onClick={() => {
+              navigate(`/artist/${artistInfo.id}`);
+            }}
           >
-            ${"{"}body.data[0].artist.name{"}"}
+            {artistInfo.name}
           </h2>
           <span className="text-muted" style={{ fontSize: 14, marginLeft: 5 }}>
-            • 2018 • ${"{"}body.data.length{"}"} songs , 1 hr 19 min
+            • {albumInfo.fans} • {length} songs , 1 hr 19 min
           </span>
         </div>
       </div>
     </div>
   );
 }
+
+
 
 export default AlbumTopInfo;

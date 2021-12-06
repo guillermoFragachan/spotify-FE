@@ -1,60 +1,79 @@
 import React from "react";
 
+import { useLocation, useNavigate } from "react-router-dom";
+
 const SideBar = ({ children }) => {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
   return (
     <div className="aside-bar">
       <div className=" position-aside">
         <div>
-          <a href>
-            <img src="/img/logo.png" id="logo-spotify" className="img-fluid" />
-          </a>
-          <div className="d-flex align-items-center justify-content-start section-selected-style">
-            <a href>
-              <i className="bi bi-house-door-fill icons-color-size" />
-            </a>
-            <a href="#">
-              <p className="section-side">Home</p>
-            </a>
+          <img
+            src="/img/logo.png"
+            id="logo-spotify"
+            className="img-fluid"
+            onClick={() => navigate("/")}
+          />
+
+          <div
+            className={
+              pathname === "/"
+                ? `d-flex align-items-center justify-content-start section-selected-style section-selected-style-active`
+                : "d-flex align-items-center justify-content-start section-selected-style"
+            }
+            onClick={() => navigate("/")}
+          >
+            <i className="bi bi-house-door-fill icons-color-size" />
+
+            <p className="section-side">Home</p>
           </div>
         </div>
         <div>
-          <div className="d-flex align-items-center justify-content-start section-selected-style-list">
-            <a href>
-              <i className="bi bi-search icons-color-size" />
-            </a>
-            <a href="#">
-              <p className="section-side">Search</p>
-            </a>
+          <div
+            className={
+              pathname === "/search"
+                ? `d-flex align-items-center justify-content-start section-selected-style section-selected-style-active`
+                : "d-flex align-items-center justify-content-start section-selected-style"
+            }
+            onClick={() => navigate("/search")}
+          >
+            <i className="bi bi-search icons-color-size" />
+
+            <p className="section-side">Search</p>
           </div>
         </div>
         <div>
-          <div className="d-flex align-items-center justify-content-start section-selected-style-list">
-            <a href>
-              <i className="bi bi-music-note-list icons-color-size" />
-            </a>
-            <a href="#">
-              <p className="section-side">Your Library</p>
-            </a>
+          <div
+            className={
+              pathname === "/library/albums"
+                ? `d-flex align-items-center justify-content-start section-selected-style section-selected-style-active`
+                : "d-flex align-items-center justify-content-start section-selected-style"
+            }
+            onClick={() => navigate("/library/albums")}
+          >
+            <i className="bi bi-music-note-list icons-color-size" />
+            <p className="section-side">Your Library</p>
           </div>
         </div>
         <div>
           <div className="d-flex align-items-center justify-content-start section-selected-style-list-bottom">
-            <a href>
-              <i className="bi bi-plus-square-fill icons-color-size" />
-            </a>
-            <a href="#">
-              <p className="section-side">Create Playlist</p>
-            </a>
+            <i className="bi bi-plus-square-fill icons-color-size" />
+            <p className="section-side">Create Playlist</p>
           </div>
         </div>
         <div>
-          <div className="d-flex align-items-center justify-content-start section-selected-style-list-lower">
-            <a href>
-              <i className="bi bi-heart-fill icons-color-size" />
-            </a>
-            <a href="#">
-              <p className="section-side">Liked Songs</p>
-            </a>
+          <div
+            className={
+              pathname === "/liked"
+                ? `d-flex align-items-center justify-content-start section-selected-style section-selected-style-active`
+                : "d-flex align-items-center justify-content-start section-selected-style"
+            }
+            onClick={() => navigate("/liked")}
+          >
+            <i className="bi bi-heart-fill icons-color-size" />
+            <p className="section-side">Liked Songs</p>
           </div>
         </div>
         <hr className="hr-styled" />
