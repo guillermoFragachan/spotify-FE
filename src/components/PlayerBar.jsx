@@ -5,7 +5,7 @@ const PlayerBar = () => {
     <div className="left-fixed">
       <nav
         className="navbar navbar-expand-lg navbar-dark background-spotify"
-        style={{ height: "100%", position: "sticky", bottom: 0 }}
+        style={{ height: "100%", position: "sticky", bottom: 0, width: "100%"}}
       >
         <a className="navbar-brand" href="#">
           <img src="./img/juice 2.jpg" className="music-selected" />

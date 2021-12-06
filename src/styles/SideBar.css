@@ -38,7 +38,7 @@ html {
 
 .music-container {
   background: linear-gradient(#410707, #000000) !important;
-  height: 90vh!important;
+  height: 100vh!important;
   overflow-x: hidden;
   width: calc(100% - 260px);
   margin-right: -260px !important;
@@ -47,8 +47,7 @@ html {
 .position-aside {
   background: #000000;
   width: 260px;
-
-  height: 90vh;
+  height: 100vh;
 }
 
 .icons-color-size {
