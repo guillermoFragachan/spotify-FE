@@ -107,3 +107,8 @@
   transform: scale(1.2);
   z-index: 10;
 }
+
+
+.noDisplay {
+  display: none;
+}

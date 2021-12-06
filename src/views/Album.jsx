@@ -22,7 +22,7 @@ function Album() {
         setAlbumInfo(data);
         setArtistInfo(data.artist);
         setAlbumSongs(data.tracks.data);
-        console.log(albumInfo)
+        console.log(albumInfo.cover_small, "fetchalbum")
       } else {
         console.log("error");
       }
@@ -188,7 +188,7 @@ function Album() {
 
             {
              albumSongs.map((song, index) => {
-               return <Songs song={song} index={index}/>
+               return <Songs song={song} index={index} img={albumInfo.cover_small}/>
              })
             }
           </div>

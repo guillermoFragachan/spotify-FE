@@ -1,8 +1,17 @@
 import React from "react";
+import { useSelector, useDispatch } from 'react-redux'
+import {getSongInformation, getSongImage} from '../store/actions/index.js'
 
-function SingleSongs({ song, index }) {
+
+function SingleSongs({ song, index, img }) {
+
+  const dispatch = useDispatch()
+
   return (
-    <div className="col-12 d-flex flex-column mb-0 background-list">
+    <div className="col-12 d-flex flex-column mb-0 background-list" onClick={()=>{
+      dispatch(getSongInformation(song))
+      dispatch(getSongImage(img))
+    }}>
       <div className="d-flex justify-content-between">
         <div className="d-flex">
           <div className="d-flex align-items-center justify-content-center">

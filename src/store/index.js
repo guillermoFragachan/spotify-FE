@@ -12,7 +12,8 @@ export const initialState = {
     popSongs: [],
   },
 
-  songInformation: {},
+  songInformation: null,
+  songImage: null,
 };
 const configureStore = createStore(
   mainReducer,
