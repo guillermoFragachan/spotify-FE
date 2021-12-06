@@ -5,16 +5,29 @@ import { useSelector, useDispatch } from 'react-redux'
 const PlayerBar = () => {
 
   const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
   const songInformation = useSelector(state=> state.songInformation)
   const songImage = useSelector(state=> state.songImage)
   const refs = useRef()
 
+  const audio = new Audio(songInformation?.preview)
+
+  const handleCurrentTimeChange = (e) => {
+    const { currentTime, duration } = refs.current;
+    const progress = (currentTime / duration) * 100;
+   
+      setProgress(progress);
+    
+  }
+  
  
- 
+ useEffect(() => {} , [refs.current])
+
   useEffect(() => {
+  setTimeout(() => {handleCurrentTimeChange()},100)
    
     
-  }, [ isPlaying])
+  }, [ isPlaying, progress])
   return (
     <div className="left-fixed">
    <nav
@@ -39,31 +52,55 @@ const PlayerBar = () => {
            <i className="bi bi-skip-start-fill icons-color-size-before" />
            {
              isPlaying ? (
-              <i className={"bi bi-skip-start-fill icons-color-size-before" } onClick={()=>{
+              <i className={"bi bi-pause-fill icons-color-size-before" } onClick={()=>{
                 setIsPlaying(false)
                 refs.current.pause()
                 console.log('paused')
 
               }}/>
              ):(
-              <i className={"bi bi-play-circle-fill icons-color-size"} onClick={()=>{
+              <i className={"bi bi-play-fill icons-color-size"} onClick={()=>{
                 setIsPlaying(true)
                 refs.current.play()
+                
 
               }} />
              )
            }
            <i className="bi bi-skip-end-fill icons-color-size-before" />
          </div>
-         <div className="slidecontainer1">
-           <input
-             type="range"
-             min={1}
-             max={100}
-             defaultValue={50}
-             className="slider1"
-             id="myRange"
-           />
+         <div className="d-flex align-items-center justify-content-center">
+           { refs.current?.duration? <span className="durationTimeSong">0:0{Math.floor(refs.current.currentTime)}</span>:<span className="durationTimeSong">0:00</span> }
+         <div className="slidecontainer1 ">
+           {
+             refs.current ? (
+              <input
+              type="range"
+              min={1}
+              max={100}
+              defaultValue={0}
+              value={progress}
+              onChange={(e) => {
+                setProgress(e.target.value);
+                refs.current.currentTime = (e.target.value / 100) * refs.current.duration;
+              }}
+              className="slider1"
+              id="myRange"
+            />
+             ):(
+              <input
+              type="range"
+              min={1}
+              max={100}
+              defaultValue={0}
+              className="slider1"
+              id="myRange"
+            />
+             )
+           }
+         </div>
+        { refs.current?.duration? <span className="durationTimeSong">0:0{Math.floor(refs.current.duration)}</span>:<span className="durationTimeSong">0:00</span> }
+
          </div>
        </ul>
      </div>
