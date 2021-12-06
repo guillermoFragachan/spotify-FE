@@ -39,7 +39,7 @@ html {
 .music-container {
   
   /* overflow-y: scroll; */
-  background: #1F1F1F;
+  background:linear-gradient(#410707, #000000) !important;;
     height: 90vh!important;
     overflow-x: hidden;
     width: calc(100% - 260px);
@@ -336,7 +336,6 @@ li {
 }
 
 #navbar {
-  background-color: #181818;
   color: white;
   background-repeat: no-repeat;
   background-size: cover;
@@ -389,6 +388,11 @@ li {
   width: 100%;
   background: rgb(31,31,31);
   background: linear-gradient(0deg, rgba(31,31,31,1) 75%, rgba(139,140,140,1) 100%);
+  overflow-y: hidden;
+  margin-top: -16px;
+}
+.main-content-album2{
+  width: 100%;
   overflow-y: hidden;
   margin-top: -16px;
 }
