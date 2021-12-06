@@ -1,28 +1,23 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
-import mainReducer from './reducers/index.js'
-import thunk from 'redux-thunk'
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import mainReducer from "./reducers/index.js";
+import thunk from "redux-thunk";
 
-
-
-const aComposeThatAlwaysWorks = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-
-
+const aComposeThatAlwaysWorks =
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const initialState = {
-    
-    songs: {
-        category: [],
-        rockSongs: [],
-        popSongs: []
-        },
-  
-      songInformation:{
-                      
-          
-      },
-      
-   
-  }
-  const configureStore = createStore(mainReducer, initialState, aComposeThatAlwaysWorks(applyMiddleware(thunk)))
+  songs: {
+    category: [],
+    rockSongs: [],
+    popSongs: [],
+  },
 
-export default configureStore
+  songInformation: {},
+};
+const configureStore = createStore(
+  mainReducer,
+  initialState,
+  aComposeThatAlwaysWorks(applyMiddleware(thunk))
+);
+
+export default configureStore;
