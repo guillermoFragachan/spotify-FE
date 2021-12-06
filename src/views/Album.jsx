@@ -3,6 +3,7 @@ import AlbumTopInfo from "../components/AlbumTopInfo";
 import Songs from "../components/Songs";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Loader from "../components/Loader";
 
 function Album() {
   const params = useParams().albumId;
@@ -174,7 +175,7 @@ function Album() {
               <div className="row d-flex">
                 <div className="col-12 col-md-12 col-lg-12 col-xl-12">
                   <div className="col-12 d-flex flex-column mb-0">
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between header-album">
                       <span className="text-muted"># TITLE</span>
 
                       <i class="bi bi-clock text-muted"></i>
@@ -182,7 +183,7 @@ function Album() {
                   </div>
                 </div>
               </div>
-              <hr />
+              <hr className="header-album" />
             </div>
 
             {
@@ -194,7 +195,7 @@ function Album() {
         </section>
       </div>
     ) : (
-      <div>Loading.....</div>
+      <Loader />
     )
   );
 }

@@ -1,6 +1,8 @@
 import React from "react";
 import SingleSongs from "./SingleSongs";
 
+
+
 function Songs({song , index}) {
   return (
     <div className="padding-content">
@@ -12,5 +14,7 @@ function Songs({song , index}) {
     </div>
   );
 }
+
+
 
 export default Songs;

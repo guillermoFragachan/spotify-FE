@@ -34,6 +34,7 @@ html {
   max-width: 70%;
   margin-top: 20px;
   padding: 0 30px;
+  margin-bottom: 20px;
 }
 
 .music-container {
@@ -82,16 +83,24 @@ a:link {
   text-decoration: none !important;
 }
 
-.section-selected-style:active {
+.section-selected-style-active {
   background: #282828;
   border-radius: 5px;
-}
-
-.section-selected-style {
-  margin-top: 25px;
   height: 40px;
   cursor: pointer;
   margin-left: 15px;
+  margin-top: 10px;
+  min-width: 230px;
+  max-width: 230px;
+}
+
+.section-selected-style {
+  height: 40px;
+  cursor: pointer;
+  margin-left: 15px;
+  margin-top: 10px;
+  min-width: 230px;
+  max-width: 230px;
 }
 
 .section-selected-style-list {
@@ -507,6 +516,11 @@ li {
   background: #2a2c2f;
   border-radius: 3px;
   opacity: 1;
+  min-width: 300px;
+}
+
+.header-album {
+  min-width: 285px;
 }
 
 .background-list:hover .unliked {

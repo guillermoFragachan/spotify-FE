@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+
 import { useParams } from "react-router";
+import Loader from "../components/Loader";
 
 const Artist = () => {
   const [artistInfo, setArtistInfo] = useState(null);
 
   const params = useParams();
 
-  console.log(params)
+  console.log(params);
 
   const fetchArtistInfo = async (params) => {
     try {
@@ -17,7 +19,7 @@ const Artist = () => {
       if (response.ok) {
         const data = await response.json();
         setArtistInfo(data);
-        console.log(data)
+        console.log(data);
       } else {
         console.log("error fetching artist");
       }
@@ -28,39 +30,40 @@ const Artist = () => {
 
   const topFiveSongs = async () => {
     try {
-
-      const response = await fetch(`https://api.deezer.com/artist/119/top?limit=1`, {
-        "method": "GET",
-        "headers": {
-          "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-          "x-rapidapi-key": "54af5d148emsh7c584bbc4786506p1619efjsn5c4304c1b056"
+      const response = await fetch(
+        `https://api.deezer.com/artist/119/top?limit=1`,
+        {
+          method: "GET",
+          headers: {
+            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+            "x-rapidapi-key":
+              "54af5d148emsh7c584bbc4786506p1619efjsn5c4304c1b056",
+          },
         }
-      })
+      );
 
-      if(response.ok) {
+      if (response.ok) {
         const data = await response.json();
-        console.log(data)
+        console.log(data);
       } else {
-        console.log("error fetching top five songs")
+        console.log("error fetching top five songs");
       }
-      
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
     fetchArtistInfo(params.artistId);
-    topFiveSongs()
+    topFiveSongs();
   }, []);
 
-
-  
-
-  return (
-    artistInfo ? (
-      <div className="music-container">
-      <section id="navbar" style={{backgroundImage: `url(${artistInfo.picture_xl})`}}>
+  return artistInfo ? (
+    <div className="music-container">
+      <section
+        id="navbar"
+        style={{ backgroundImage: `url(${artistInfo.picture_xl})` }}
+      >
         <div className="container-fluid">
           <nav className="navbar navbar-expand-lg navbar-dark bg-svideo-dark">
             <div className="nav-item active">
@@ -130,7 +133,7 @@ const Artist = () => {
                 <i className="bi bi-patch-check-fill" />
                 Verified Artist
               </span>
-              <span >
+              <span>
                 <h1 className="header">{artistInfo.name}</h1>
               </span>
               <p className="lead">{artistInfo.nb_fan} Followers</p>
@@ -200,9 +203,7 @@ const Artist = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="d-flex flex-row">
-                        <p className="views">642,364,286</p>
-                      </div>
+
                       <div className="d-flex">
                         <div className="d-flex flex-row">
                           <img className="unliked" src="./img/heart-64.svg" />
@@ -227,9 +228,7 @@ const Artist = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="d-flex flex-row">
-                        <p className="views">642,364,286</p>
-                      </div>
+
                       <div className="d-flex">
                         <div className="d-flex flex-row">
                           <img className="unliked" src="./img/heart-64.svg" />
@@ -254,9 +253,7 @@ const Artist = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="d-flex flex-row">
-                        <p className="views">642,364,286</p>
-                      </div>
+
                       <div className="d-flex">
                         <div className="d-flex flex-row">
                           <img className="unliked" src="./img/heart-64.svg" />
@@ -281,9 +278,7 @@ const Artist = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="d-flex flex-row">
-                        <p className="views">642,364,286</p>
-                      </div>
+
                       <div className="d-flex">
                         <div className="d-flex flex-row">
                           <img className="unliked" src="./img/heart-64.svg" />
@@ -308,9 +303,7 @@ const Artist = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="d-flex flex-row">
-                        <p className="views">642,364,286</p>
-                      </div>
+
                       <div className="d-flex">
                         <div className="d-flex flex-row">
                           <img className="unliked" src="./img/heart-64.svg" />
@@ -350,9 +343,7 @@ const Artist = () => {
                           textTransform: "none",
                           marginTop: 5,
                         }}
-                      >
-                      
-                      </div>
+                      ></div>
                     </div>
                   </div>
                 </div>
@@ -511,11 +502,8 @@ const Artist = () => {
         </div>
       </section>
     </div>
-    ) : (
-
-      <div>Loader...</div>
-
-    )
+  ) : (
+    <Loader />
   );
 };
 

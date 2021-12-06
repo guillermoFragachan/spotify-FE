@@ -23,6 +23,18 @@
   margin-top: 4px;
 }
 
+.spinner-container {
+  width: calc(100% - 260px) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #121212;
+}
+
+.spinner-logo {
+  background: #9A9A9A;
+}
+
 #jumbo-navbar {
   background-color: #410707;
 }
