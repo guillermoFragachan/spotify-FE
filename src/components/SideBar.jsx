@@ -1,16 +1,12 @@
 import React from "react";
 
-const SideBar = ({children}) => {
+const SideBar = ({ children }) => {
   return (
-    <div className="aside-bar"  >
+    <div className="aside-bar">
       <div className=" position-aside">
         <div>
           <a href>
-            <img
-                src="./img/logo.png"
-              id="logo-spotify"
-              className="img-fluid"
-            />
+            <img src="/img/logo.png" id="logo-spotify" className="img-fluid" />
           </a>
           <div className="d-flex align-items-center justify-content-start section-selected-style">
             <a href>
@@ -62,7 +58,7 @@ const SideBar = ({children}) => {
           </div>
         </div>
         <hr className="hr-styled" />
-       
+
         <ul id="scrollable-section">
           <a href>
             <li>Random Playlist</li>
@@ -165,14 +161,10 @@ const SideBar = ({children}) => {
             </p>
           </a>
         </div>
-
       </div>
       {children}
-
-
     </div>
   );
 };
-
 
 export default SideBar;

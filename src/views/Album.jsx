@@ -79,7 +79,7 @@ function Album() {
           <div className="container-fluid p-0">
             <div className="jumbotron-album">
               <div className="row" id="photo-of-artist">
-                  <AlbumTopInfo />
+                <AlbumTopInfo />
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@ function Album() {
               >
                 <i className="bi bi-three-dots tr-dots" />
               </a>
-              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink" >
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a className="dropdown-item" href="#">
                   Action
                 </a>
@@ -129,7 +129,25 @@ function Album() {
               </div>
             </div>
           </div>
+          <div className="padding-content">
+            <div className="row d-flex">
+              <div className="col-12 col-md-12 col-lg-12 col-xl-12">
+                <div className="col-12 d-flex flex-column mb-0">
+                  <div className="d-flex justify-content-between">
+                    <span className="text-muted"># TITLE</span>
+
+                    <i class="bi bi-clock text-muted"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr />
+          </div>
+
+          
           <Songs />
+
+
         </div>
       </section>
     </div>

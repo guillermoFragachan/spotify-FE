@@ -386,6 +386,7 @@ li {
 
 .main-content-album {
   width: 100%;
+  min-height: 80vh;
   background: rgb(31,31,31);
   background: linear-gradient(0deg, rgba(31,31,31,1) 75%, rgba(139,140,140,1) 100%);
   overflow-y: hidden;
