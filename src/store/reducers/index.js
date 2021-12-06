@@ -1,5 +1,5 @@
 import { initialState } from '../index.js'
-import { GET_SONG_INFO, GET_SONGS } from '../actions/index.js'
+import { GET_SONG_INFO, GET_SONGS,GET_SONG_IMAGE } from '../actions/index.js'
 
 
 
@@ -10,8 +10,12 @@ const mainReducer = (state = initialState, action) => {
           ...state,
           songInformation: action.payload,
         }
-
-    case GET_SONGS:
+    case GET_SONG_IMAGE:
+      return{
+        ...state,
+        songImage: action.payload
+      }
+    
         
       
 
