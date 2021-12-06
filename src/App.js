@@ -4,6 +4,7 @@ import PlayerBar from "./components/PlayerBar";
 import Home from "./views/Home";
 import Artist from "./views/Artist";
 import Album from "./views/Album";
+import LikePage from "./views/LikePage";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/artist/:artistId" element={<Artist />} />
             <Route path="/album/:albumId" element={<Album />} />
+            <Route path="/liked/" element={<LikePage />} />
+
           </Routes>
         </SideBar>
       </div>

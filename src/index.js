@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./styles/SideBar.css";
 import "./styles/HomePage.css";
+import "./styles/LikePage.css";
 
 ReactDOM.render(
   <Provider store={configureStore}>
