@@ -43,7 +43,7 @@
   }
   
   .container-fluid {
-    background: linear-gradient(#410707, #000000) !important;
+    background: transparent;
     background-attachment: fixed;
     color: white;
   }
