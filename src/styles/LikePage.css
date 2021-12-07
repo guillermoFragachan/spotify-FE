@@ -3,6 +3,7 @@
     width: 192px;
     height: 192px;
     box-shadow: 0px 0px 100px #000;
+    justify-content: flex-end;
 
 }
 
@@ -27,4 +28,22 @@
     overflow-y: hidden;
     margin-top: -16px;
 
+  }
+
+  .headerLike {
+    padding: 0.08em 0px;
+        visibility: visible;
+        width: 100%;
+        font-size: 72px;
+        line-height: 72px;
+        padding: 0px 0px 0px 0px;
+margin: 0px 0px 10px 0px;
+        font-weight: 900;
+    letter-spacing: -.04em;
+    text-transform: none;
+  }
+
+  .titlesLikePage{
+    font-weight: 700 !important;
+    font-size: 12px;
   }

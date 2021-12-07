@@ -63,24 +63,30 @@ const likePage = (props) => {
                 </div>
               </nav>
               <div className="jumbotron jumbotron-fluid">
-                <div className="d-flex"style={{ margin: 35, marginTop: 146 }}>
-                  <img className="likedBox img-fluid" src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"/>
-                  <span className="align-items-center">
-                    <span>PLAYLIST</span>
-                    <h1 className="header">Liked Songs</h1>
-                    <span>Diego - 4 songs</span>
+                <div className="d-flex align-items-end"style={{ margin: 35, marginTop: 146 }}>
+                  <img className="likedBox  img-fluid mr-3" src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"/>
+                  <span className="titlesLikePage">
+                    <span >PLAYLIST</span>
+                    <h4 className="headerLike">Liked Songs</h4>
+                    <span> Diego - 4 songs</span>
                   </span>
                 </div>
               </div>
             </div>
             <div className="like-content-album">
+              
               <div>
+               
+                <div className="padding-content">
+                 
+
                 <div className="buttons-row">
                   <div className="play-button">
                     <div className="play">
                       <i className="bi bi-play-fill" />
                     </div>
                   </div>
+                
                  
                   <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a className="dropdown-item" href="#">
@@ -94,8 +100,9 @@ const likePage = (props) => {
                     </a>
                   </div>
                 </div>
-                <div className="padding-content">
-                 
+
+
+
                   <div className="row d-flex">
                     <div className="col-12 col-md-12 col-lg-12 col-xl-10">
                       <div className="col-12 d-flex flex-column mb-0 background-list">
