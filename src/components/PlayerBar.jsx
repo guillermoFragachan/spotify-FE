@@ -6,11 +6,11 @@ const PlayerBar = () => {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [volume, setVolume] = useState(0.5);
   const songInformation = useSelector(state=> state.songInformation)
   const songImage = useSelector(state=> state.songImage)
   const refs = useRef()
 
-  const audio = new Audio(songInformation?.preview)
 
   const handleCurrentTimeChange = (e) => {
     const { currentTime, duration } = refs.current;
@@ -19,9 +19,16 @@ const PlayerBar = () => {
       setProgress(progress);
     
   }
+
+  const handleVolumeChange = (e) => {
+    const newVolume = e; 
+    console.log(newVolume)
+    refs.current.volume = newVolume/100;
+    setVolume(newVolume);
+  }
   
  
- useEffect(() => {} , [refs.current])
+ useEffect(() => {} , [refs.current, volume])
 
   useEffect(() => {
   setTimeout(() => {handleCurrentTimeChange()},100)
@@ -92,7 +99,7 @@ const PlayerBar = () => {
               type="range"
               min={1}
               max={100}
-              defaultValue={0}
+              value={0}
               className="slider1"
               id="myRange"
             />
@@ -112,7 +119,9 @@ const PlayerBar = () => {
          <i className="bi bi-speaker icon-bottom-nav" />
        </a>
        <a href>
-         <i className="bi bi-volume-down icon-bottom-nav-audio" />
+         {
+            volume===0 ? (<i class="bi bi-volume-mute icon-bottom-nav-audio" onClick={()=>setVolume(0.5)}/>):(<i className="bi bi-volume-down icon-bottom-nav-audio"  onClick={()=>setVolume(0)} />)
+         }
        </a>
        <div className="slidecontainer">
        
@@ -120,8 +129,9 @@ const PlayerBar = () => {
            type="range"
            min={1}
            max={100}
-           defaultValue={50}
            className="slider"
+           value={volume}
+           onChange={(e) => {handleVolumeChange(e.target.value)} }
            id="myRange"
          />
        </div>

@@ -1,12 +1,52 @@
 import React from "react";
+
 import { useDispatch } from 'react-redux'
+
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect, useState } from "react";
+
 import {getSongInformation, getSongImage} from '../store/actions/index.js'
+import {parse, stringify, toJSON, fromJSON} from 'flatted';
 
 
-function SingleSongs({ song, index, img }) {
+function SingleSongs({ song, index, img, album }) {
+
+  const [liked, setLiked] = useState(false)
+
+  const fetchLikes = (likedSong) => {
+    likedSong.album = album
+    delete likedSong.album.album
+    delete likedSong.album.tracks
+    delete likedSong.album.artist
+    
+    console.log(JSON.stringify(likedSong))
+    
+    const url = 'http://localhost:3001/likes'
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify(likedSong)
+      
+    })
+    .then((response) => {
+      console.log(response)
+      return response.json()})
+    .then(
+      console.log('liked')
+    )
+    
+    
+  }
 
   const dispatch = useDispatch()
 
+
+  useEffect(() => {
+
+  }, [liked])
   return (
     <div className="col-12 d-flex flex-column mb-0 background-list" onClick={()=>{
       dispatch(getSongInformation(song))
@@ -28,10 +68,22 @@ function SingleSongs({ song, index, img }) {
             </div>
           </div>
         </div>
-
+        
         <div className="d-flex">
           <div className="d-flex flex-row">
-            <img className="unliked" src="./img/heart-64.svg" />
+            {
+              liked ? (<i class="bi bi-heart-fill liked mr-5" onClick={()=>{
+                setLiked(false)
+              
+              }} ></i>):(<i class="bi bi-heart unliked mr-5" onClick={()=>{
+                // console.log(JSON.stringify(song))
+                fetchLikes(song)
+                setLiked(true)
+
+              }} ></i>)
+            }
+            
+            
             <p className="views">2:30</p>
           </div>
         </div>
