@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Songs from "../components/Songs";
+import { useParams } from "react-router";
 
 
 
@@ -8,8 +9,11 @@ import Songs from "../components/Songs";
 
 
 const LikePage = () => {
+  
+  const params = useParams();
 
   const [likedSongs, setLikedSongs] = useState([]);
+  const [image, setImage] = useState(null);
 
   const fetchLikedSongs = () => {
     const url = 'http://localhost:3001/likes'
@@ -21,9 +25,25 @@ const LikePage = () => {
       })
     
   }
-
+  const fetchPlaylistSongs = (playlistId) =>{
+    const url = 'http://localhost:3001/playlist/'+playlistId
+    fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+        setLikedSongs(data);
+        setImage(data[0].md5_image)
+      })
+  }
   useEffect(() => {
-    fetchLikedSongs();
+        if(params?.playlistId){
+
+          fetchPlaylistSongs(params.playlistId)
+        }else{
+          fetchLikedSongs();
+
+          
+        }
+
   } , [])
     return (<div className="like-container">
           <section
@@ -80,10 +100,10 @@ const LikePage = () => {
               </nav>
               <div className="jumbotron jumbotron-fluid">
                 <div className="d-flex align-items-end"style={{ margin: 35, marginTop: 146 }}>
-                  <img className="likedBox  img-fluid mr-3" src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"/>
+                  <img className="likedBox  img-fluid mr-3" src={!params?.playlistId &&"https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"||"https://e-cdns-images.dzcdn.net/images/cover/"+image+"/250x250-000000-80-0-0.jpg"}/>
                   <span className="titlesLikePage">
                     <span >PLAYLIST</span>
-                    <h4 className="headerLike">Liked Songs</h4>
+                    <h4 className="headerLike">{!params?.playlistId &&'Liked Songs' ||"Playlist "+ params.playlistId}</h4>
                     <span> Diego - 4 songs</span>
                   </span>
                 </div>
@@ -118,7 +138,7 @@ const LikePage = () => {
                 </div>
 
 
-                {
+                {           
                             likedSongs.length > 0 &&
                             likedSongs.map((song, index) => {
                               console.log(song)
