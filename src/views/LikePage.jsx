@@ -9,7 +9,7 @@ import React from "react";
 const likePage = (props) => {
 
 
-    return <div className="music-container">
+    return <div className="like-container">
           <section
             id="navbar"
                      >
@@ -63,15 +63,17 @@ const likePage = (props) => {
                 </div>
               </nav>
               <div className="jumbotron jumbotron-fluid">
-                <div style={{ margin: 35, marginTop: 146 }}>
-                  <img className="likedBox" src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"/>
-                  <span>
-                    <h1 className="header"></h1>
+                <div className="d-flex"style={{ margin: 35, marginTop: 146 }}>
+                  <img className="likedBox img-fluid" src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"/>
+                  <span className="align-items-center">
+                    <span>PLAYLIST</span>
+                    <h1 className="header">Liked Songs</h1>
+                    <span>Diego - 4 songs</span>
                   </span>
                 </div>
               </div>
             </div>
-            <div className="main-content-album">
+            <div className="like-content-album">
               <div>
                 <div className="buttons-row">
                   <div className="play-button">
@@ -93,19 +95,9 @@ const likePage = (props) => {
                   </div>
                 </div>
                 <div className="padding-content">
-                  <div className="d-flex justify-content-end">
-                    <h1 className="title-section" style={{ width: 1035 }}>
-                      Popular
-                    </h1>
-                    <h1
-                      className="title-section d-none d-md-none d-lg-none d-xl-block"
-                      style={{ width: 487 }}
-                    >
-                      Artist Pick
-                    </h1>
-                  </div>
+                 
                   <div className="row d-flex">
-                    <div className="col-12 col-md-12 col-lg-12 col-xl-7">
+                    <div className="col-12 col-md-12 col-lg-12 col-xl-10">
                       <div className="col-12 d-flex flex-column mb-0 background-list">
                         <div className="d-flex justify-content-between">
                           <div className="d-flex">
@@ -181,92 +173,10 @@ const likePage = (props) => {
                           </div>
                         </div>
                       </div>
-                      <div className="col-12 d-flex flex-column mb-0 background-list">
-                        <div className="d-flex justify-content-between">
-                          <div className="d-flex">
-                            <div className="d-flex">
-                              <div className="d-flex my-auto m-0">
-                                <h1 className="views">4</h1>
-                              </div>
-                              <img className="artist-pic" src="./img/juice 2.jpg" />
-                              <div className="d-flex flex-column">
-                                <p className="line-breaker">
-                                  some random text to show
-                                </p>
-                                <span className="explicit-content">E</span>
-                              </div>
-                            </div>
-                          </div>
-    
-                          <div className="d-flex">
-                            <div className="d-flex flex-row">
-                              <img className="unliked" src="./img/heart-64.svg" />
-                              <p className="views">2:30</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-12 d-flex flex-column mb-0 background-list">
-                        <div className="d-flex justify-content-between">
-                          <div className="d-flex">
-                            <div className="d-flex">
-                              <div className="d-flex my-auto m-0">
-                                <h1 className="views">5</h1>
-                              </div>
-                              <img className="artist-pic" src="./img/juice 2.jpg" />
-                              <div className="d-flex flex-column">
-                                <p className="line-breaker">
-                                  some random text to show
-                                </p>
-                                <span className="explicit-content">E</span>
-                              </div>
-                            </div>
-                          </div>
-    
-                          <div className="d-flex">
-                            <div className="d-flex flex-row">
-                              <img className="unliked" src="./img/heart-64.svg" />
-                              <p className="views">2:30</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    
+                      
                     </div>
-                    <div className="d-none d-md-none d-lg-none d-xl-block offset-1 col-4 ">
-                      <div className="d-flex">
-                        <div>
-                          <img
-                            className="artist-pick"
-                            
-                          />
-                        </div>
-                        <div className="d-flex flex-column">
-                          <div>
-                            <img
-                              className="artist-small-pic"
-                             
-                            />
-                            <span className="artist-name">Posted by an Artist</span>
-                          </div>
-                          <div>
-                            <a className="name-tag" href="#">
-                            
-                            
-                            </a>
-                          </div>
-                          <div
-                            style={{
-                              fontSize: 14,
-                              fontWeight: 400,
-                              letterSpacing: "normal",
-                              lineHeight: 16,
-                              textTransform: "none",
-                              marginTop: 5,
-                            }}
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
+                   
                   </div>
                 
                   

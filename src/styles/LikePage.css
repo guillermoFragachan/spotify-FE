@@ -2,5 +2,29 @@
    
     width: 192px;
     height: 192px;
+    box-shadow: 0px 0px 100px #000;
 
 }
+
+.like-container {
+    background: linear-gradient(#4E3998, #000000) !important;
+    height: calc(100vh - 100px);
+    overflow-x: hidden;
+    width: calc(100% - 260px);
+    margin-right: -260px !important;
+  }
+
+  .like-content-album{
+    width: 100%;
+    min-height: 80vh;
+    background: linear-gradient(#21163B, #121212);
+    /* background: rgb(31, 31, 31); */
+    /* background: linear-gradient(
+      0deg,
+      rgba(31, 31, 31, 1) 75%,
+      rgba(139, 140, 140, 1) 100%
+    ); */
+    overflow-y: hidden;
+    margin-top: -16px;
+
+  }
