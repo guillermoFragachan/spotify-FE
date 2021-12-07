@@ -46,6 +46,34 @@
   bottom: 0;
 }
 
+.search-bar-container {
+  width: 300px;
+  min-width: 150px;
+  background: #fff;
+  border-radius: 500px;
+  border: 0;
+  outline: 0;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 40px;
+  margin-left: 20px;
+}
+
+.search-icon {
+  color: #000;
+  margin-left: 15px;
+}
+
+.search-input {
+  outline: 0;
+  border: 0;
+  background: #fff;
+  width: 100%;
+  border-radius: 500px;
+  margin-left: 10px;
+}
+
 .card-body .dotted {
   white-space: nowrap;
   text-overflow: ellipsis;
