@@ -505,8 +505,20 @@ li {
   width: 16px;
   margin-right: 15px;
   margin-top: 22px;
-  opacity: 0;
+  opacity: 1;
+  color: white;
 }
+.liked {
+  height: 16px;
+  width: 16px;
+  margin-right: 15px;
+  margin-top: 22px;
+  opacity: 1;
+  color:#1CB955;
+}
+
+
+
 
 .background-list:hover {
   background: #2a2c2f;

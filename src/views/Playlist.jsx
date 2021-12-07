@@ -1,31 +1,19 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import Songs from "../components/Songs";
+import {useState, useEffect} from "react";
+import { useParams } from "react-router";
 
 
 
 
 
 
-const LikePage = () => {
+const Playlist = (props) => {
 
-  const [likedSongs, setLikedSongs] = useState([]);
 
-  const fetchLikedSongs = () => {
-    const url = 'http://localhost:3001/likes'
-    fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-        setLikedSongs(data);
-        console.log(data, 'try')
-      })
-    
-  }
+  const [image, setImage] = useState(null);
+  const params = useParams();
 
-  useEffect(() => {
-    fetchLikedSongs();
-  } , [])
-    return (<div className="like-container">
+    return <div className="like-container">
           <section
             id="navbar"
                      >
@@ -80,10 +68,12 @@ const LikePage = () => {
               </nav>
               <div className="jumbotron jumbotron-fluid">
                 <div className="d-flex align-items-end"style={{ margin: 35, marginTop: 146 }}>
-                  <img className="likedBox  img-fluid mr-3" src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"/>
+                  {
+                    <img className="likedBox  img-fluid mr-3" src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"/>
+                  }
                   <span className="titlesLikePage">
                     <span >PLAYLIST</span>
-                    <h4 className="headerLike">Liked Songs</h4>
+                    <h4 className="headerLike">Playlist {params.playlistId}</h4>
                     <span> Diego - 4 songs</span>
                   </span>
                 </div>
@@ -118,19 +108,11 @@ const LikePage = () => {
                 </div>
 
 
-                {
-                            likedSongs.length > 0 &&
-                            likedSongs.map((song, index) => {
-                              console.log(song)
-                              return <Songs index={index} song={song} img={"https://e-cdns-images.dzcdn.net/images/cover/"+song.md5_image+"/250x250-000000-80-0-0.jpg"}/>
-                            })
-                          }
-                  {/* <div className="row d-flex">
+
+                  <div className="row d-flex">
                     <div className="col-12 col-md-12 col-lg-12 col-xl-10">
                       <div className="col-12 d-flex flex-column mb-0 background-list">
                         <div className="d-flex justify-content-between">
-
-
                           <div className="d-flex">
                             <div className="d-flex">
                               <div className="d-flex my-auto m-0">
@@ -145,8 +127,6 @@ const LikePage = () => {
                               </div>
                             </div>
                           </div>
-
-                         
     
                           <div className="d-flex">
                             <div className="d-flex flex-row">
@@ -211,15 +191,15 @@ const LikePage = () => {
                     </div>
                    
                   </div>
-                 */}
+                
                   
                   
                 </div>
               </div>
             </div>
           </section>
-        </div>)
+        </div>
 }
 
 
-export default LikePage
+export default Playlist
