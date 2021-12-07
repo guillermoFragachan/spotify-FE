@@ -1,5 +1,6 @@
 import React from "react";
-
+import {useState, useEffect} from "react";
+import { useParams } from "react-router";
 
 
 
@@ -8,6 +9,9 @@ import React from "react";
 
 const Playlist = (props) => {
 
+
+  const [image, setImage] = useState(null);
+  const params = useParams();
 
     return <div className="like-container">
           <section
@@ -64,10 +68,12 @@ const Playlist = (props) => {
               </nav>
               <div className="jumbotron jumbotron-fluid">
                 <div className="d-flex align-items-end"style={{ margin: 35, marginTop: 146 }}>
-                  <img className="likedBox  img-fluid mr-3" src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"/>
+                  {
+                    <img className="likedBox  img-fluid mr-3" src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"/>
+                  }
                   <span className="titlesLikePage">
                     <span >PLAYLIST</span>
-                    <h4 className="headerLike">Liked Songs</h4>
+                    <h4 className="headerLike">Playlist {params.playlistId}</h4>
                     <span> Diego - 4 songs</span>
                   </span>
                 </div>

@@ -1,15 +1,31 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import Songs from "../components/Songs";
 
 
 
 
 
 
+const LikePage = () => {
 
-const likePage = (props) => {
+  const [likedSongs, setLikedSongs] = useState([]);
 
+  const fetchLikedSongs = () => {
+    const url = 'http://localhost:3001/likes'
+    fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+        setLikedSongs(data);
+        console.log(data, 'try')
+      })
+    
+  }
 
-    return <div className="like-container">
+  useEffect(() => {
+    fetchLikedSongs();
+  } , [])
+    return (<div className="like-container">
           <section
             id="navbar"
                      >
@@ -102,11 +118,19 @@ const likePage = (props) => {
                 </div>
 
 
-
-                  <div className="row d-flex">
+                {
+                            likedSongs.length > 0 &&
+                            likedSongs.map((song, index) => {
+                              console.log(song)
+                              return <Songs index={index} song={song} img={"https://e-cdns-images.dzcdn.net/images/cover/"+song.md5_image+"/250x250-000000-80-0-0.jpg"}/>
+                            })
+                          }
+                  {/* <div className="row d-flex">
                     <div className="col-12 col-md-12 col-lg-12 col-xl-10">
                       <div className="col-12 d-flex flex-column mb-0 background-list">
                         <div className="d-flex justify-content-between">
+
+
                           <div className="d-flex">
                             <div className="d-flex">
                               <div className="d-flex my-auto m-0">
@@ -121,6 +145,8 @@ const likePage = (props) => {
                               </div>
                             </div>
                           </div>
+
+                         
     
                           <div className="d-flex">
                             <div className="d-flex flex-row">
@@ -185,15 +211,15 @@ const likePage = (props) => {
                     </div>
                    
                   </div>
-                
+                 */}
                   
                   
                 </div>
               </div>
             </div>
           </section>
-        </div>
+        </div>)
 }
 
 
-export default likePage
+export default LikePage
