@@ -21,17 +21,21 @@ const mainReducer = (state = initialState, action) => {
       };
 
     case LATEST_SEARCHES:
+
+      const latestSearches = 
+        state.latestSearches.some( artist => artist.id === payload.id )
+          ? state.latestSearches
+          : [...state.latestSearches, payload];
+
       return {
         ...state,
-        latestSearches: [
-          ...state.latestSearches,
-          state.latestSearches.filter((item, index) => index !== action.index)
-        ]
+        latestSearches
       };
 
     default:
       return state;
   }
 };
+
 
 export default mainReducer;
