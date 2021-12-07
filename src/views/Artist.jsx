@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 
 import { useParams } from "react-router";
 import Loader from "../components/Loader";
+import Songs from "../components/Songs";
 
 const Artist = () => {
   const [artistInfo, setArtistInfo] = useState(null);
 
-  const params = useParams();
+  const [artistTopTracks, setArtistTopTracks] = useState([]);
 
-  console.log(params);
+  const [artistTopFiveAlbums, setArtistTopFiveAlbums] = useState([]);
+
+  const params = useParams();
 
   const fetchArtistInfo = async (params) => {
     try {
@@ -19,7 +22,7 @@ const Artist = () => {
       if (response.ok) {
         const data = await response.json();
         setArtistInfo(data);
-        console.log(data);
+        await topFiveSongs();
       } else {
         console.log("error fetching artist");
       }
@@ -28,23 +31,34 @@ const Artist = () => {
     }
   };
 
+  /* https://be-sptfy.herokuapp.com/topFive/ */
+
   const topFiveSongs = async () => {
     try {
       const response = await fetch(
-        `https://api.deezer.com/artist/119/top?limit=1`,
-        {
-          method: "GET",
-          headers: {
-            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-            "x-rapidapi-key":
-              "54af5d148emsh7c584bbc4786506p1619efjsn5c4304c1b056",
-          },
-        }
+        `http://localhost:3001/topFive/${params.artistId}`
       );
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
+        setArtistTopTracks(data);
+      } else {
+        console.log("error fetching top five songs");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const topFiveAlbums = async (artist) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3001/topFive/album/${artist}`
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        setArtistTopFiveAlbums(data);
       } else {
         console.log("error fetching top five songs");
       }
@@ -55,8 +69,11 @@ const Artist = () => {
 
   useEffect(() => {
     fetchArtistInfo(params.artistId);
-    topFiveSongs();
   }, []);
+
+  useEffect(() => {
+    topFiveAlbums(artistInfo?.name);
+  }, [artistInfo]);
 
   return artistInfo ? (
     <div className="music-container">
@@ -187,131 +204,15 @@ const Artist = () => {
               </div>
               <div className="row d-flex">
                 <div className="col-12 col-md-12 col-lg-12 col-xl-7">
-                  <div className="col-12 d-flex flex-column mb-0 background-list">
-                    <div className="d-flex justify-content-between">
-                      <div className="d-flex">
-                        <div className="d-flex">
-                          <div className="d-flex my-auto m-0">
-                            <h1 className="views">1</h1>
-                          </div>
-                          <img className="artist-pic" src="./img/juice 2.jpg" />
-                          <div className="d-flex flex-column">
-                            <p className="line-breaker">
-                              some random text to show
-                            </p>
-                            <span className="explicit-content">E</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="d-flex">
-                        <div className="d-flex flex-row">
-                          <img className="unliked" src="./img/heart-64.svg" />
-                          <p className="views">2:30</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 d-flex flex-column mb-0 background-list">
-                    <div className="d-flex justify-content-between">
-                      <div className="d-flex">
-                        <div className="d-flex">
-                          <div className="d-flex my-auto m-0">
-                            <h1 className="views">2</h1>
-                          </div>
-                          <img className="artist-pic" src="./img/juice 2.jpg" />
-                          <div className="d-flex flex-column">
-                            <p className="line-breaker">
-                              some random text to show
-                            </p>
-                            <span className="explicit-content">E</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="d-flex">
-                        <div className="d-flex flex-row">
-                          <img className="unliked" src="./img/heart-64.svg" />
-                          <p className="views">2:30</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 d-flex flex-column mb-0 background-list">
-                    <div className="d-flex justify-content-between">
-                      <div className="d-flex">
-                        <div className="d-flex">
-                          <div className="d-flex my-auto m-0">
-                            <h1 className="views">3</h1>
-                          </div>
-                          <img className="artist-pic" src="./img/juice 2.jpg" />
-                          <div className="d-flex flex-column">
-                            <p className="line-breaker">
-                              some random text to show
-                            </p>
-                            <span className="explicit-content">E</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="d-flex">
-                        <div className="d-flex flex-row">
-                          <img className="unliked" src="./img/heart-64.svg" />
-                          <p className="views">2:30</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 d-flex flex-column mb-0 background-list">
-                    <div className="d-flex justify-content-between">
-                      <div className="d-flex">
-                        <div className="d-flex">
-                          <div className="d-flex my-auto m-0">
-                            <h1 className="views">4</h1>
-                          </div>
-                          <img className="artist-pic" src="./img/juice 2.jpg" />
-                          <div className="d-flex flex-column">
-                            <p className="line-breaker">
-                              some random text to show
-                            </p>
-                            <span className="explicit-content">E</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="d-flex">
-                        <div className="d-flex flex-row">
-                          <img className="unliked" src="./img/heart-64.svg" />
-                          <p className="views">2:30</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-12 d-flex flex-column mb-0 background-list">
-                    <div className="d-flex justify-content-between">
-                      <div className="d-flex">
-                        <div className="d-flex">
-                          <div className="d-flex my-auto m-0">
-                            <h1 className="views">5</h1>
-                          </div>
-                          <img className="artist-pic" src="./img/juice 2.jpg" />
-                          <div className="d-flex flex-column">
-                            <p className="line-breaker">
-                              some random text to show
-                            </p>
-                            <span className="explicit-content">E</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="d-flex">
-                        <div className="d-flex flex-row">
-                          <img className="unliked" src="./img/heart-64.svg" />
-                          <p className="views">2:30</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  {artistTopTracks.map((song, index) => {
+                    return (
+                      <Songs
+                        song={song}
+                        index={index}
+                        img={`https://e-cdns-images.dzcdn.net/images/cover/${song.md5_image}/264x264-000000-80-0-0.jpg`}
+                      />
+                    );
+                  })}
                 </div>
                 <div className="d-none d-md-none d-lg-none d-xl-block offset-1 col-4 ">
                   <div className="d-flex">
@@ -398,103 +299,12 @@ const Artist = () => {
                   style={{ marginBottom: 64 }}
                 >
                   <div className="d-flex justify-content-between mt-3">
-                    <h4 style={{ width: "bold" }}>Recently played</h4>
+                    <h4 style={{ width: "bold" }}>Albums</h4>
                     <p>
                       <span className="text-muted"> SEE All</span>
                     </p>
                   </div>
-                  <div className="row py-1 d-flex">
-                    <div className="col-2 h-100">
-                      <div className="card">
-                        <img
-                          src="./img/artist-img/curtis6.jpg"
-                          className="card-img-top"
-                          alt="img-fluid"
-                        />
-                        <div className="card-body">
-                          <h5 className="card-title">Burning Jazz-rock</h5>
-                          <p className="dotted">
-                            you'll find fiery, modern,groovy, jazz-rock
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-2 h-100">
-                      <div className="card">
-                        <img
-                          src="./img/artist-img/abba2.jpg"
-                          className="card-img-top"
-                          alt="img-fluid"
-                        />
-                        <div className="card-body">
-                          <h5 className="card-title">Burning Jazz-rock</h5>
-                          <p className="dotted">
-                            you'll find fiery, modern,groovy, jazz-rock
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-2 h-100">
-                      <div className="card">
-                        <img
-                          src="./img/artist-img/george3.jpg"
-                          className="card-img-top"
-                          alt="img-fluid"
-                        />
-                        <div className="card-body">
-                          <h5 className="card-title">Burning Jazz-rock</h5>
-                          <p className="dotted">
-                            you'll find fiery, modern,groovy, jazz-rock
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-2 h-100">
-                      <div className="card">
-                        <img
-                          src="./img/artist-img/the5.jpg"
-                          className="card-img-top"
-                          alt="img-fluid"
-                        />
-                        <div className="card-body">
-                          <h5 className="card-title">Burning Jazz-rock</h5>
-                          <p className="dotted">
-                            you'll find fiery, modern,groovy, jazz-rock
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-2 h-100">
-                      <div className="card">
-                        <img
-                          src="./img/artist-img/the4.jpg"
-                          className="card-img-top"
-                          alt="img-fluid"
-                        />
-                        <div className="card-body">
-                          <h5 className="card-title">Burning Jazz-rock</h5>
-                          <p className="dotted">
-                            you'll find fiery, modern,groovy, jazz-rock
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-2 h-100">
-                      <div className="card">
-                        <img
-                          src="./img/artist-img/janis7.jpg"
-                          className="card-img-top"
-                          alt="img-fluid"
-                        />
-                        <div className="card-body">
-                          <h5 className="card-title">Burning Jazz-rock</h5>
-                          <p className="dotted">
-                            you'll find fiery, modern,groovy, jazz-rock
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <div className="row py-1 d-flex"></div>
                 </div>
               </section>
             </div>

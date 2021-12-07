@@ -185,10 +185,9 @@ function Album() {
               </div>
               <hr className="header-album" />
             </div>
-
             {
              albumSongs.map((song, index) => {
-               return <Songs song={song} index={index} img={albumInfo.cover_small}/>
+               return <Songs song={song} index={index} album={albumInfo} img={albumInfo.cover_small}/>
              })
             }
           </div>
