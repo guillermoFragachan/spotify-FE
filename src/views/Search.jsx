@@ -1,36 +1,21 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { getLatestSearches } from "../store/actions/index";
+
+import { fetchResultsArray } from "../store/actions/index";
 
 function Search() {
   const [search, setSearch] = useState("");
 
-  const [results, setResults] = useState([]);
+  const { latestSearches, latestResultsSearch } = useSelector((state) => state);
 
   const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
-  const fetchResults = async (search) => {
-    try {
-      const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/deezer/search?q=${search}`
-      );
-      if (response.ok) {
-        const data = await response.json();
-        setResults(data.data);
-        dispatch(getLatestSearches(data.data[0].artist));
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const { latestSearches } = useSelector((state) => state);
-
-  return results.length > 0 ? (
+  return latestSearches.length > 0 ? (
     <div className="music-container">
       <div className="w-100">
         <div className="container-fluid p-0">
@@ -48,7 +33,7 @@ function Search() {
               <div className="d-flex align-items-center">
                 <i
                   class="bi bi-search search-icon"
-                  onClick={() => fetchResults(search)}
+                  onClick={() => dispatch(fetchResultsArray(search))}
                 ></i>
                 <input
                   type="text"
@@ -123,13 +108,45 @@ function Search() {
             <section id="second-section">
               <div class="container">
                 <div class="d-flex justify-content-between mt-5">
-                  <h4 style={{ width: "bold" }}>Recently played</h4>
-                  <p>
-                    <span class="text-muted"> SEE All</span>
-                  </p>
+                  <h4 style={{ width: "bold" }}>Recent searches</h4>
                 </div>
                 <div class="row py-1 d-flex" id="recently-played">
-                  {results.slice(0, 12).map((song, index) => {
+                  {latestSearches.slice(0, 6).map((artist, index) => {
+                    return (
+                      <div
+                        className="col-12 col-sm-6 col-md-4 col-lg-2"
+                        onClick={() => {
+                          navigate(`/artist/${artist.id}`);
+                        }}
+                      >
+                        <div class="card" style={{ marginBottom: "25px" }}>
+                          <img
+                            src={artist.picture}
+                            class="card-img-top img-fluid img-rounded"
+                          />
+                          <div class="card-body">
+                            <h5 class="card-title dotted">{artist.name}</h5>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="main-content-album2">
+        <div>
+          <div class="padding-content">
+            <section id="second-section">
+              <div class="container">
+                <div class="d-flex justify-content-between mt-5">
+                  <h4 style={{ width: "bold" }}>Results for {latestResultsSearch[0].artist.name}</h4>
+                </div>
+                <div class="row py-1 d-flex" id="recently-played">
+                  {latestResultsSearch.slice(0, 12).map((song, index) => {
                     return (
                       <div
                         className="col-12 col-sm-6 col-md-4 col-lg-2"
@@ -176,7 +193,7 @@ function Search() {
               <div className="d-flex align-items-center">
                 <i
                   class="bi bi-search search-icon"
-                  onClick={() => fetchResults(search)}
+                  onClick={() => dispatch(fetchResultsArray(search))}
                 ></i>
                 <input
                   type="text"
@@ -253,9 +270,6 @@ function Search() {
               <div class="container">
                 <div class="d-flex justify-content-between mt-5">
                   <h4 style={{ width: "bold" }}>Recently played</h4>
-                  <p>
-                    <span class="text-muted"> SEE All</span>
-                  </p>
                 </div>
                 <div class="row py-1 d-flex" id="recently-played">
                   Search Something

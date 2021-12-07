@@ -12,6 +12,7 @@ export const initialState = {
     popSongs: [],
   },
   latestSearches: [],
+  latestResultsSearch: [],
   songInformation: null,
   songImage: null,
 };

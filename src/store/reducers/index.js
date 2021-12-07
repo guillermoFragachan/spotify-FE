@@ -3,6 +3,7 @@ import {
   GET_SONG_INFO,
   GET_SONG_IMAGE,
   LATEST_SEARCHES,
+  LATEST_RESULTS,
 } from "../actions/index.js";
 
 const mainReducer = (state = initialState, action) => {
@@ -21,21 +22,26 @@ const mainReducer = (state = initialState, action) => {
       };
 
     case LATEST_SEARCHES:
-
-      const latestSearches = 
-        state.latestSearches.some( artist => artist.id === payload.id )
-          ? state.latestSearches
-          : [...state.latestSearches, payload];
+      const latestSearches = state.latestSearches.some(
+        (artist) => artist.id === payload.id
+      )
+        ? state.latestSearches
+        : [...state.latestSearches, payload];
 
       return {
         ...state,
-        latestSearches
+        latestSearches,
       };
-
+    case LATEST_RESULTS:
+      return {
+        ...state,
+        latestResultsSearch: payload,
+      };
     default:
       return state;
   }
 };
+
 
 
 export default mainReducer;
