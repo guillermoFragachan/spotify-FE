@@ -1,12 +1,17 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Songs from "../components/Songs";
+import { useParams } from "react-router";
 
 const LikePage = () => {
+  const params = useParams();
+
   const [likedSongs, setLikedSongs] = useState([]);
+  const [image, setImage] = useState(null);
+  const [name, setName] = useState(null);
 
   const fetchLikedSongs = () => {
-    const url = "http://localhost:3001/likes";
+    const url = "https://spotify-be-app.herokuapp.com/likes";
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -14,26 +19,33 @@ const LikePage = () => {
         console.log(data, "try");
       });
   };
-
+  const fetchPlaylistSongs = (playlistId) => {
+    const url = "https://spotify-be-app.herokuapp.com/playlist/" + playlistId;
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data, "try");
+        setLikedSongs(data.songs);
+        setName(data.name);
+        if (data.songs[0]) {
+          setImage(data.songs[0].md5_image);
+        } else {
+          setImage(null);
+        }
+      });
+  };
   useEffect(() => {
-    fetchLikedSongs();
-  }, []);
+    if (params?.playlistId) {
+      fetchPlaylistSongs(params.playlistId);
+    } else {
+      fetchLikedSongs();
+    }
+  }, [params.playlistId]);
   return (
     <div className="like-container">
       <section id="navbar">
         <div className="container-fluid">
           <nav className="navbar navbar-expand-lg navbar-dark bg-svideo-dark">
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon" />
-            </button>
             <div
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
@@ -85,11 +97,19 @@ const LikePage = () => {
             >
               <img
                 className="likedBox  img-fluid mr-3"
-                src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"
+                src={
+                  (!params?.playlistId &&
+                    "https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png") ||
+                  "https://e-cdns-images.dzcdn.net/images/cover/" +
+                    image +
+                    "/250x250-000000-80-0-0.jpg"
+                }
               />
               <span className="titlesLikePage">
                 <span>PLAYLIST</span>
-                <h4 className="headerLike">Liked Songs</h4>
+                <h4 className="headerLike">
+                  {(!params?.playlistId && "Liked Songs") || name}
+                </h4>
                 <span> Diego - 4 songs</span>
               </span>
             </div>

@@ -21,7 +21,8 @@ function App() {
             <Route path="/search" element={<Search />} />
 
             <Route path="/liked/" element={<LikePage />} />
-            <Route path="/playlist/:playlistId" element={<Playlist />} />
+
+            <Route path="/playlist/:playlistId" element={<LikePage />} />
           </Routes>
         </SideBar>
       </div>
