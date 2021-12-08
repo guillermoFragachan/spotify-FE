@@ -34,7 +34,9 @@ const LikePage = () => {
       console.log(data, 'try')
         setLikedSongs(data.songs);
         setName(data.name);
-        // setImage(data[0].md5_image)
+        if(data.songs[0])
+        {setImage(data.songs[0].md5_image)}
+        else{setImage(null)}
       })
   }
   useEffect(() => {
@@ -47,7 +49,7 @@ const LikePage = () => {
           
         }
 
-  } , [params])
+  } , [params.playlistId])
     return (<div className="like-container">
           <section
             id="navbar"

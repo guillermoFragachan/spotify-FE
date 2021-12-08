@@ -7,6 +7,18 @@ const SideBar = ({ children }) => {
 
   const [playlist, setPlaylist] = useState([]);
 
+  const creatPlaylist = () => {
+
+    const newPlaylist = {name: "playlist"}
+    const url = "https://spotify-be-app.herokuapp.com/playlist";
+    fetch(url, {body: JSON.stringify(newPlaylist), method: "POST", headers: {'Content-Type': 'application/json'}})
+    .then(data => {
+      console.log(data);
+      fetchPLaylist()
+      console.log(playlist.length);
+    })
+  }
+
   const fetchPLaylist = () => {
     const url = "https://spotify-be-app.herokuapp.com/playlist";
     fetch(url)
@@ -22,6 +34,8 @@ const SideBar = ({ children }) => {
   useEffect(() => {
     fetchPLaylist();
   }, [])
+
+  useEffect(() => {}, [playlist])
   return (
     <div className="aside-bar">
       <div className=" position-aside">
@@ -76,7 +90,9 @@ const SideBar = ({ children }) => {
         <div>
           <div className="d-flex align-items-center justify-content-start section-selected-style-list-bottom">
             <i className="bi bi-plus-square-fill icons-color-size" />
-            <p className="section-side">Create Playlist</p>
+            <p className="section-side"
+            onClick={() => creatPlaylist()}
+            >Create Playlist</p>
           </div>
         </div>
         <div>
