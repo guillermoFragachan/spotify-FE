@@ -14,9 +14,10 @@ const LikePage = () => {
 
   const [likedSongs, setLikedSongs] = useState([]);
   const [image, setImage] = useState(null);
+  const [name, setName] = useState(null);
 
   const fetchLikedSongs = () => {
-    const url = 'http://localhost:3001/likes'
+    const url = 'https://spotify-be-app.herokuapp.com/likes'
     fetch(url)
     .then((response) => response.json())
     .then((data) => {
@@ -26,12 +27,14 @@ const LikePage = () => {
     
   }
   const fetchPlaylistSongs = (playlistId) =>{
-    const url = 'http://localhost:3001/playlist/'+playlistId
+    const url = 'https://spotify-be-app.herokuapp.com/playlist/'+playlistId
     fetch(url)
     .then((response) => response.json())
     .then((data) => {
-        setLikedSongs(data);
-        setImage(data[0].md5_image)
+      console.log(data, 'try')
+        setLikedSongs(data.songs);
+        setName(data.name);
+        // setImage(data[0].md5_image)
       })
   }
   useEffect(() => {
@@ -44,7 +47,7 @@ const LikePage = () => {
           
         }
 
-  } , [])
+  } , [params])
     return (<div className="like-container">
           <section
             id="navbar"
@@ -103,7 +106,7 @@ const LikePage = () => {
                   <img className="likedBox  img-fluid mr-3" src={!params?.playlistId &&"https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"||"https://e-cdns-images.dzcdn.net/images/cover/"+image+"/250x250-000000-80-0-0.jpg"}/>
                   <span className="titlesLikePage">
                     <span >PLAYLIST</span>
-                    <h4 className="headerLike">{!params?.playlistId &&'Liked Songs' ||"Playlist "+ params.playlistId}</h4>
+                    <h4 className="headerLike">{!params?.playlistId &&'Liked Songs' || name}</h4>
                     <span> Diego - 4 songs</span>
                   </span>
                 </div>

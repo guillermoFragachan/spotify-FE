@@ -1,11 +1,27 @@
 import React from "react";
+import { useEffect, useState } from "react";
 
 import { useLocation, useNavigate } from "react-router-dom";
 
 const SideBar = ({ children }) => {
+
+  const [playlist, setPlaylist] = useState([]);
+
+  const fetchPLaylist = () => {
+    const url = "https://spotify-be-app.herokuapp.com/playlist";
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      setPlaylist(data);
+    })
+  }
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    fetchPLaylist();
+  }, [])
   return (
     <div className="aside-bar">
       <div className=" position-aside">
@@ -79,93 +95,19 @@ const SideBar = ({ children }) => {
         <hr className="hr-styled" />
 
         <ul id="scrollable-section">
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
-          <a href>
-            <li>Random Playlist</li>
-          </a>
+          
+          {
+          playlist &&
+          playlist.map(playlist => {
+            return (
+              <a href>
+                <li 
+                onClick={() => navigate(`/playlist/${playlist._id}`)}
+                
+                >{playlist.name}</li>
+              </a>
+            );
+          })}
         </ul>
         <div className="d-flex align-items-baseline">
           <a href>
