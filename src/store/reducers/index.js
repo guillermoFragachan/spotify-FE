@@ -4,6 +4,7 @@ import {
   GET_SONG_IMAGE,
   LATEST_SEARCHES,
   LATEST_RESULTS,
+  TOGGLE_LOADER,
 } from "../actions/index.js";
 
 const mainReducer = (state = initialState, action) => {
@@ -37,11 +38,14 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         latestResultsSearch: payload,
       };
+    case TOGGLE_LOADER:
+      return {
+        ...state,
+        loader: payload,
+      };
     default:
       return state;
   }
 };
-
-
 
 export default mainReducer;

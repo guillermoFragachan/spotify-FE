@@ -1,49 +1,46 @@
-.likedBox{
-   
-    width: 192px;
-    height: 192px;
-    box-shadow: 0px 0px 100px #000;
-    justify-content: flex-end;
-
+.likedBox {
+  width: 192px;
+  height: 192px;
+  box-shadow: 0px 0px 100px #000;
+  justify-content: flex-end;
 }
 
 .like-container {
-    background: linear-gradient(#4E3998, #000000) !important;
-    height: calc(100vh - 100px);
-    overflow-x: hidden;
-    width: calc(100% - 260px);
-    margin-right: -260px !important;
-  }
+  background: linear-gradient(#4e3998, #000000) !important;
+  height: calc(100vh - 100px);
+  overflow-x: hidden;
+  width: calc(100% - 260px);
+  margin-right: -260px !important;
+}
 
-  .like-content-album{
-    width: 100%;
-    min-height: 80vh;
-    background: linear-gradient(#21163B, #121212);
-    /* background: rgb(31, 31, 31); */
-    /* background: linear-gradient(
+.like-content-album {
+  width: 100%;
+  min-height: 80vh;
+  background: linear-gradient(#21163b, #121212);
+  /* background: rgb(31, 31, 31); */
+  /* background: linear-gradient(
       0deg,
       rgba(31, 31, 31, 1) 75%,
       rgba(139, 140, 140, 1) 100%
     ); */
-    overflow-y: hidden;
-    margin-top: -16px;
+  overflow-y: hidden;
+  margin-top: -16px;
+}
 
-  }
+.headerLike {
+  padding: 0.08em 0px;
+  visibility: visible;
+  width: 100%;
+  font-size: 72px;
+  line-height: 72px;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 10px 0px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-transform: none;
+}
 
-  .headerLike {
-    padding: 0.08em 0px;
-        visibility: visible;
-        width: 100%;
-        font-size: 72px;
-        line-height: 72px;
-        padding: 0px 0px 0px 0px;
-margin: 0px 0px 10px 0px;
-        font-weight: 900;
-    letter-spacing: -.04em;
-    text-transform: none;
-  }
-
-  .titlesLikePage{
-    font-weight: 700 !important;
-    font-size: 12px;
-  }
+.titlesLikePage {
+  font-weight: 700 !important;
+  font-size: 12px;
+}

@@ -2,109 +2,68 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Songs from "../components/Songs";
 
-
-
-
-
-
 const LikePage = () => {
-
   const [likedSongs, setLikedSongs] = useState([]);
 
   const fetchLikedSongs = () => {
-    const url = 'http://localhost:3001/likes'
+    const url = "http://localhost:3001/likes";
     fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
+      .then((response) => response.json())
+      .then((data) => {
         setLikedSongs(data);
-        console.log(data, 'try')
-      })
-    
-  }
+        console.log(data, "try");
+      });
+  };
 
   useEffect(() => {
     fetchLikedSongs();
-  } , [])
-    return (<div className="like-container">
-          <section
-            id="navbar"
-                     >
-            <div className="container-fluid">
-              <nav className="navbar navbar-expand-lg navbar-dark bg-svideo-dark">
-               
-              
-                
-                <div
-                  className="collapse navbar-collapse"
-                  id="navbarSupportedContent"
-                >
-                  <ul className="navbar-nav mr-auto" />
-                  <div>
-                    <div className="dropdown d-inline-block">
-                      <a
-                        className="btn nav-btn dropdown-toggle"
-                        href="#"
-                        role="button"
-                        id="dropdownMenuLink"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                        style={{ color: "white" }}
-                      >
-                        <img
-                          src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg"
-                          width={28}
-                          height={28}
-                          className="mr-1"
-                          style={{ borderRadius: "50%" }}
-                        />
-                        <span className="d-inline-block">Diego 'Ziba' Balack</span>
-                      </a>
-                      <div
-                        className="dropdown-menu"
-                        aria-labelledby="dropdownMenuLink"
-                      >
-                        <a className="dropdown-item" href="#">
-                          Action
-                        </a>
-                        <a className="dropdown-item" href="#">
-                          Another action
-                        </a>
-                        <a className="dropdown-item" href="#">
-                          Something else here
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-              <div className="jumbotron jumbotron-fluid">
-                <div className="d-flex align-items-end"style={{ margin: 35, marginTop: 146 }}>
-                  <img className="likedBox  img-fluid mr-3" src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"/>
-                  <span className="titlesLikePage">
-                    <span >PLAYLIST</span>
-                    <h4 className="headerLike">Liked Songs</h4>
-                    <span> Diego - 4 songs</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="like-content-album">
-              
+  }, []);
+  return (
+    <div className="like-container">
+      <section id="navbar">
+        <div className="container-fluid">
+          <nav className="navbar navbar-expand-lg navbar-dark bg-svideo-dark">
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon" />
+            </button>
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav mr-auto" />
               <div>
-               
-                <div className="padding-content">
-                 
-
-                <div className="buttons-row">
-                  <div className="play-button">
-                    <div className="play">
-                      <i className="bi bi-play-fill" />
-                    </div>
-                  </div>
-                
-                 
-                  <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <div className="dropdown d-inline-block">
+                  <a
+                    className="btn nav-btn dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    style={{ color: "white" }}
+                  >
+                    <img
+                      src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg"
+                      width={28}
+                      height={28}
+                      className="mr-1"
+                      style={{ borderRadius: "50%" }}
+                    />
+                    <span className="d-inline-block">Diego 'Ziba' Balack</span>
+                  </a>
+                  <div
+                    className="dropdown-menu"
+                    aria-labelledby="dropdownMenuLink"
+                  >
                     <a className="dropdown-item" href="#">
                       Action
                     </a>
@@ -116,16 +75,68 @@ const LikePage = () => {
                     </a>
                   </div>
                 </div>
+              </div>
+            </div>
+          </nav>
+          <div className="jumbotron jumbotron-fluid">
+            <div
+              className="d-flex align-items-end"
+              style={{ margin: 35, marginTop: 146 }}
+            >
+              <img
+                className="likedBox  img-fluid mr-3"
+                src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"
+              />
+              <span className="titlesLikePage">
+                <span>PLAYLIST</span>
+                <h4 className="headerLike">Liked Songs</h4>
+                <span> Diego - 4 songs</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="like-content-album">
+          <div>
+            <div className="padding-content">
+              <div className="buttons-row">
+                <div className="play-button">
+                  <div className="play">
+                    <i className="bi bi-play-fill" />
+                  </div>
+                </div>
 
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuLink"
+                >
+                  <a className="dropdown-item" href="#">
+                    Action
+                  </a>
+                  <a className="dropdown-item" href="#">
+                    Another action
+                  </a>
+                  <a className="dropdown-item" href="#">
+                    Something else here
+                  </a>
+                </div>
+              </div>
 
-                {
-                            likedSongs.length > 0 &&
-                            likedSongs.map((song, index) => {
-                              console.log(song)
-                              return <Songs index={index} song={song} img={"https://e-cdns-images.dzcdn.net/images/cover/"+song.md5_image+"/250x250-000000-80-0-0.jpg"}/>
-                            })
-                          }
-                  {/* <div className="row d-flex">
+              {likedSongs.length > 0 &&
+                likedSongs.map((song, index) => {
+                  console.log(song);
+                  return (
+                    <Songs
+                      index={index}
+                      song={song}
+                      img={
+                        "https://e-cdns-images.dzcdn.net/images/cover/" +
+                        song.md5_image +
+                        "/250x250-000000-80-0-0.jpg"
+                      }
+                    />
+                  );
+                })}
+              {/* <div className="row d-flex">
                     <div className="col-12 col-md-12 col-lg-12 col-xl-10">
                       <div className="col-12 d-flex flex-column mb-0 background-list">
                         <div className="d-flex justify-content-between">
@@ -212,14 +223,12 @@ const LikePage = () => {
                    
                   </div>
                  */}
-                  
-                  
-                </div>
-              </div>
             </div>
-          </section>
-        </div>)
-}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
 
-
-export default LikePage
+export default LikePage;

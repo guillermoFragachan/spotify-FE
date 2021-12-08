@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Loader from "../components/Loader";
 import Songs from "../components/Songs";
+import AlbumCard from "../components/AlbumCard";
 
 const Artist = () => {
   const [artistInfo, setArtistInfo] = useState(null);
@@ -31,12 +32,10 @@ const Artist = () => {
     }
   };
 
-  /* https://be-sptfy.herokuapp.com/topFive/ */
-
   const topFiveSongs = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/topFive/${params.artistId}`
+        `${process.env.REACT_APP_BE_URL}/topFive/${params.artistId}`
       );
 
       if (response.ok) {
@@ -53,12 +52,12 @@ const Artist = () => {
   const topFiveAlbums = async (artist) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/topFive/album/${artist}`
+        `${process.env.REACT_APP_BE_URL}/topFive/album/${artist}`
       );
 
       if (response.ok) {
         const data = await response.json();
-        setArtistTopFiveAlbums(data);
+        setArtistTopFiveAlbums(data.slice(0, 5));
       } else {
         console.log("error fetching top five songs");
       }
@@ -83,12 +82,6 @@ const Artist = () => {
       >
         <div className="container-fluid">
           <nav className="navbar navbar-expand-lg navbar-dark bg-svideo-dark">
-            <div className="nav-item active">
-              <i className="bi bi-chevron-left" />
-            </div>
-            <div className="nav-item text-muted ml-3">
-              <i className="bi bi-chevron-right" />
-            </div>
             <button
               className="navbar-toggler"
               type="button"
@@ -263,32 +256,23 @@ const Artist = () => {
               <div className="col-12 d-xl-none">
                 <div className="d-flex">
                   <div>
-                    <img className="artist-pick" src="./img/trippie red.jpg" />
+                    <img
+                      className="artist-pick"
+                      src={artistInfo.picture_medium}
+                    />
                   </div>
                   <div className="d-flex flex-column">
                     <div>
                       <img
                         className="artist-small-pic"
-                        src="./img/juice 2.jpg"
+                        src={artistInfo.picture_small}
                       />
                       <span className="artist-name">Posted by an Artist</span>
                     </div>
                     <div>
                       <a className="name-tag" href="#">
-                        NAME OF THE ARTIST
+                        {artistInfo.name}
                       </a>
-                    </div>
-                    <div
-                      style={{
-                        fontSize: 14,
-                        fontWeight: 400,
-                        letterSpacing: "normal",
-                        lineHeight: 16,
-                        textTransform: "none",
-                        marginTop: 5,
-                      }}
-                    >
-                      Playlist
                     </div>
                   </div>
                 </div>
@@ -300,11 +284,12 @@ const Artist = () => {
                 >
                   <div className="d-flex justify-content-between mt-3">
                     <h4 style={{ width: "bold" }}>Albums</h4>
-                    <p>
-                      <span className="text-muted"> SEE All</span>
-                    </p>
                   </div>
-                  <div className="row py-1 d-flex"></div>
+                  <div className="row py-1 d-flex">
+                    {artistTopFiveAlbums.map((song) => {
+                      return <AlbumCard song={song} />;
+                    })}
+                  </div>
                 </div>
               </section>
             </div>

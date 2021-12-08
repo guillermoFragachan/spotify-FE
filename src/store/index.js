@@ -13,6 +13,7 @@ export const initialState = {
   },
   latestSearches: [],
   latestResultsSearch: [],
+  loader: false,
   songInformation: null,
   songImage: null,
 };

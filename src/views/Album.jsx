@@ -44,12 +44,6 @@ function Album() {
               id="jumbo-navbar"
               className="navbar navbar-expand-lg navbar-dark"
             >
-              <div className="nav-item active" style={{ color: "white" }}>
-                <i className="bi bi-chevron-left" />
-              </div>
-              <div className="nav-item text-muted ml-3">
-                <i className="bi bi-chevron-right" />
-              </div>
               <button
                 className="navbar-toggler"
                 type="button"

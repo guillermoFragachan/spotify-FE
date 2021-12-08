@@ -334,13 +334,6 @@ li {
   font-size: 96px;
 }
 
-#navbar {
-  color: white;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 400px;
-}
-
 .btn:focus {
   box-shadow: none;
 }
@@ -348,18 +341,7 @@ li {
 .jumbotron .bi {
   color: rgb(12, 125, 231);
 }
-#navbar::before {
-  content: " ";
-  height: 450px;
-  background-image: linear-gradient(
-    at right,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgb(14, 11, 11) 60%
-  );
 
-  position: left;
-  width: 100%;
-}
 
 .dropdown {
   background-color: rgba(27, 2, 11, 0.836);
@@ -417,6 +399,7 @@ li {
 
 .play {
   font-size: 40px;
+  color: white;
 }
 
 .tr-dots {
