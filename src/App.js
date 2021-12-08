@@ -8,14 +8,12 @@ import Search from "./views/Search";
 import LikePage from "./views/LikePage";
 import Playlist from "./views/Playlist";
 
-
 function App() {
   return (
     <BrowserRouter>
       <div className="container-master">
         <SideBar>
           <Routes>
-
             <Route path="/" element={<Home />} />
             <Route path="/artist/:artistId" element={<Artist />} />
             <Route path="/album/:albumId" element={<Album />} />
@@ -23,9 +21,8 @@ function App() {
             <Route path="/search" element={<Search />} />
 
             <Route path="/liked/" element={<LikePage />} />
-            <Route path="/playlist/:playlistId" element={<Playlist />} />
 
-
+            <Route path="/playlist/:playlistId" element={<LikePage />} />
           </Routes>
         </SideBar>
       </div>
@@ -33,6 +30,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
 
 export default App;

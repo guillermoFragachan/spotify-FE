@@ -1,5 +1,6 @@
 #navbar {
   width: 100%;
+  height: 400px!important;
 }
 
 .nav-item .bi {
@@ -86,6 +87,10 @@
 .card-top img {
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
+}
+
+.card-album-artistpage {
+  height: 100%;
 }
 
 .card-top {
