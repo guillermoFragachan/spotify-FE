@@ -4,6 +4,7 @@ export const GET_SONG_IMAGE = "GET_SONG_IMAGE";
 export const LATEST_SEARCHES = "LATEST_SEARCHES";
 export const LATEST_RESULTS = "LATEST_RESULTS"
 export const TOGGLE_LOADER = "TOGGLE_LOADER"
+export const PLAY_SONG = "PLAY_SONG"
 
 export const getSongsAction = (artistName, category) => {
   return async (dispatch) => {
@@ -78,4 +79,9 @@ export const getLatestSearches = (latestSearches) => ({
 const toggleLoader = (bool) => ({
   type: TOGGLE_LOADER,
   payload: bool
+})
+
+export const playSong = (songStatus) => ({
+  type: PLAY_SONG,
+  payload: songStatus
 })

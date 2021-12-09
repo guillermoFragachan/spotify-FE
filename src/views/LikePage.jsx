@@ -165,6 +165,7 @@ const LikePage = () => {
                         song.md5_image +
                         "/250x250-000000-80-0-0.jpg"
                       }
+                      liked={true}
                     />
                   );
                 })}
