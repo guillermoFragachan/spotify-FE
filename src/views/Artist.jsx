@@ -22,6 +22,7 @@ const Artist = () => {
 
       if (response.ok) {
         const data = await response.json();
+        console.log(data);
         setArtistInfo(data);
         await topFiveSongs();
       } else {
@@ -202,6 +203,7 @@ const Artist = () => {
                       <Songs
                         song={song}
                         index={index}
+                        album={"A"}
                         img={`https://e-cdns-images.dzcdn.net/images/cover/${song.md5_image}/264x264-000000-80-0-0.jpg`}
                       />
                     );
