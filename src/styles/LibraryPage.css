@@ -1,0 +1,21 @@
+.nav-buttons-lib {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  color: #fff;
+  display: inline-block;
+  margin: 0 8px;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: normal;
+  line-height: 16px;
+  text-transform: none;
+  cursor: pointer;
+}
+
+.nav-buttons-lib-active {
+  background-color: #282828;
+}

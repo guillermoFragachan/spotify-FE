@@ -5,6 +5,7 @@ import {
   LATEST_SEARCHES,
   LATEST_RESULTS,
   TOGGLE_LOADER,
+  LIKED_ALBUMS,
 } from "../actions/index.js";
 
 const mainReducer = (state = initialState, action) => {
@@ -42,6 +43,11 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         loader: payload,
+      };
+    case LIKED_ALBUMS:
+      return {
+        ...state,
+        likedAlbums: payload,
       };
     default:
       return state;
