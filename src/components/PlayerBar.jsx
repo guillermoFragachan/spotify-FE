@@ -9,6 +9,7 @@ const PlayerBar = () => {
   const [volume, setVolume] = useState(0.5);
   const songInformation = useSelector(state=> state.songInformation)
   const songImage = useSelector(state=> state.songImage)
+  const songPlaying = useSelector(state=> state.songPlaying)
   const refs = useRef()
 
 
@@ -27,6 +28,16 @@ const PlayerBar = () => {
     setVolume(newVolume);
   }
   
+
+  useEffect(() => {
+    if (songPlaying) {
+      refs.current.play();
+      setIsPlaying(true);
+    } else {
+      refs.current.pause();
+      setIsPlaying(false);
+    }
+  } , [songPlaying])
  
  useEffect(() => {} , [refs.current, volume])
 

@@ -38,7 +38,8 @@ html {
 }
 
 .music-container {
-  background: linear-gradient(#410707, #000000) !important;
+  /* background: linear-gradient(#410707, #000000) !important; */
+  background: #121212 !important;
   height: calc(100vh - 100px);
   overflow-x: hidden;
   width: calc(100% - 260px);
@@ -262,16 +263,28 @@ li {
   margin-bottom: 15px;
 }
 
-.slider1:hover {
+/* .slider1[type="range"] {
+  -webkit-appearance: none;
+  margin-right: 15px;
+  width: 200px;
+  height: 7px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  background-image: linear-gradient(#ff4500, #ff4500);
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
+} */
+
+.slider1 {
   background: #1db954;
 }
 
-.slider1:hover.slider1::-webkit-slider-thumb {
+.slider1.slider1::-webkit-slider-thumb {
   opacity: 1;
 }
 
 .slider1::-webkit-slider-thumb {
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   appearance: none;
   width: 13px;
   height: 13px;
@@ -365,12 +378,14 @@ li {
 .main-content-album {
   width: 100%;
   min-height: 80vh;
-  background: rgb(31, 31, 31);
-  background: linear-gradient(
+  /* background: rgb(31, 31, 31); */
+  /* background: linear-gradient(
     0deg,
     rgba(31, 31, 31, 1) 75%,
     rgba(139, 140, 140, 1) 100%
-  );
+  ); */
+  background: #121212 !important;
+
   overflow-y: hidden;
   margin-top: -16px;
 }
@@ -482,6 +497,13 @@ li {
   color: white;
   font-weight: normal;
   margin: auto;
+}
+
+.like-big {
+  height: 40px;
+  width: 40px;
+  margin-right: 15px;
+  opacity: 1;
 }
 
 .unliked {

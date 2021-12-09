@@ -13,9 +13,11 @@ export const initialState = {
   },
   latestSearches: [],
   latestResultsSearch: [],
+  likedAlbums: [],
   loader: false,
   songInformation: null,
   songImage: null,
+  songPlaying: false
 };
 const configureStore = createStore(
   mainReducer,

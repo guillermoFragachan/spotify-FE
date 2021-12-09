@@ -3,10 +3,13 @@
   height: 192px;
   box-shadow: 0px 0px 100px #000;
   justify-content: flex-end;
+  min-width: 192px;
 }
 
 .like-container {
   background: linear-gradient(#4e3998, #000000) !important;
+
+
   height: calc(100vh - 100px);
   overflow-x: hidden;
   width: calc(100% - 260px);
@@ -16,7 +19,8 @@
 .like-content-album {
   width: 100%;
   min-height: 80vh;
-  background: linear-gradient(#21163b, #121212);
+  /* background: linear-gradient(#21163b, #121212); */
+  background: #121212 !important;
   /* background: rgb(31, 31, 31); */
   /* background: linear-gradient(
       0deg,
@@ -44,3 +48,44 @@
   font-weight: 700 !important;
   font-size: 12px;
 }
+
+.no-song-h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 36px;
+  text-transform: none;
+  min-width: 450px;
+}
+
+.no-song-span {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 24px;
+  text-transform: none;
+}
+
+.no-song-btn {
+  width: 150px;
+  height: 40px;
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 500px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.no-song-btn:hover {
+  text-decoration: underline 1px #000;
+}
+
+.no-like {
+  height: calc(50vh - 100px);
+  min-width: 400px;
+}
+

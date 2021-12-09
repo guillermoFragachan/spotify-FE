@@ -2,8 +2,12 @@ export const GET_SONGS = "GET_SONGS";
 export const GET_SONG_INFO = "GET_SONG_INFO";
 export const GET_SONG_IMAGE = "GET_SONG_IMAGE";
 export const LATEST_SEARCHES = "LATEST_SEARCHES";
-export const LATEST_RESULTS = "LATEST_RESULTS"
-export const TOGGLE_LOADER = "TOGGLE_LOADER"
+export const LATEST_RESULTS = "LATEST_RESULTS";
+export const TOGGLE_LOADER = "TOGGLE_LOADER";
+export const LIKED_ALBUMS = "LIKE_ALBUMS";
+export const PLAY_SONG = "PLAY_SONG"
+export const FAVORITE_SONGS = "FAVORITE_SONGS"
+
 
 export const getSongsAction = (artistName, category) => {
   return async (dispatch) => {
@@ -34,11 +38,11 @@ export const getSongsAction = (artistName, category) => {
   };
 };
 
-export const fetchResultsArray = (e , search) => {
+export const fetchResultsArray = (e, search) => {
   return async (dispatch) => {
     try {
       e.preventDefault();
-      dispatch(toggleLoader(true))
+      dispatch(toggleLoader(true));
       const response = await fetch(
         `https://striveschool-api.herokuapp.com/api/deezer/search?q=${search}`
       );
@@ -46,17 +50,40 @@ export const fetchResultsArray = (e , search) => {
         const data = await response.json();
         dispatch({
           type: LATEST_RESULTS,
-          payload: data.data
-        })
+          payload: data.data,
+        });
         dispatch(getLatestSearches(data.data[0].artist));
-        dispatch(toggleLoader(false))
+        dispatch(toggleLoader(false));
       }
     } catch (error) {
-      dispatch(toggleLoader(false))
+      dispatch(toggleLoader(false));
+      console.log(error);
+    }
+  };
+};
+
+
+export const getLikedAlbums = () => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_BE_URL}/albums`
+      );
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data.data)
+        dispatch({
+          type: LIKED_ALBUMS,
+          payload: data.data,
+        });
+      }
+    } catch (error) {
       console.log(error);
     }
   }
-};
+}
+
+
 
 export const getSongInformation = (selectedSong) => ({
   type: GET_SONG_INFO,
@@ -68,14 +95,23 @@ export const getSongImage = (selectedSong) => ({
   payload: selectedSong,
 });
 
-
 export const getLatestSearches = (latestSearches) => ({
   type: LATEST_SEARCHES,
   payload: latestSearches,
-})
-
+});
 
 const toggleLoader = (bool) => ({
   type: TOGGLE_LOADER,
-  payload: bool
+  payload: bool,
+});
+
+
+export const playSong = (songStatus) => ({
+  type: PLAY_SONG,
+  payload: songStatus
+})
+
+export const favoriteSongs = (songs) => ({
+  type: FAVORITE_SONGS,
+  payload: songs
 })

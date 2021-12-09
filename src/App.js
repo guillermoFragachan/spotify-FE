@@ -6,7 +6,8 @@ import Artist from "./views/Artist";
 import Album from "./views/Album";
 import Search from "./views/Search";
 import LikePage from "./views/LikePage";
-import Playlist from "./views/Playlist";
+import LibraryAlbums from "./views/LibraryAlbums";
+import LibraryPlaylists from "./views/LibraryPlaylists"
 
 function App() {
   return (
@@ -17,12 +18,11 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/artist/:artistId" element={<Artist />} />
             <Route path="/album/:albumId" element={<Album />} />
-
             <Route path="/search" element={<Search />} />
-
             <Route path="/liked/" element={<LikePage />} />
-
             <Route path="/playlist/:playlistId" element={<LikePage />} />
+            <Route path="/library/playlists" element={<LibraryPlaylists />} />
+            <Route path="/library/albums" element={<LibraryAlbums />} />
           </Routes>
         </SideBar>
       </div>
