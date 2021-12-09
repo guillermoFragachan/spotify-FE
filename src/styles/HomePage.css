@@ -94,7 +94,7 @@
 }
 
 .card-top {
-  background: linear-gradient(#3a1e1e, #3a2f2f);
+  background: #272727;
   border-radius: 5px;
 }
 .card {
@@ -115,7 +115,7 @@
 
   transform: scale(1);
   transition: transform 0.3s ease-out;
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .card-top {
