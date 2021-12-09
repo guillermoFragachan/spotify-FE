@@ -5,6 +5,7 @@ export const LATEST_SEARCHES = "LATEST_SEARCHES";
 export const LATEST_RESULTS = "LATEST_RESULTS"
 export const TOGGLE_LOADER = "TOGGLE_LOADER"
 export const PLAY_SONG = "PLAY_SONG"
+export const FAVORITE_SONGS = "FAVORITE_SONGS"
 
 export const getSongsAction = (artistName, category) => {
   return async (dispatch) => {
@@ -84,4 +85,9 @@ const toggleLoader = (bool) => ({
 export const playSong = (songStatus) => ({
   type: PLAY_SONG,
   payload: songStatus
+})
+
+export const favoriteSongs = (songs) => ({
+  type: FAVORITE_SONGS,
+  payload: songs
 })
