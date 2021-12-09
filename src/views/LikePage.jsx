@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Songs from "../components/Songs";
 import { useParams } from "react-router";
+import NoLikedSongs from "../components/NoLikedSongs";
 
 const LikePage = () => {
   const params = useParams();
@@ -104,13 +105,22 @@ const LikePage = () => {
                     image +
                     "/250x250-000000-80-0-0.jpg"
                 }
+                
               />
               <span className="titlesLikePage">
                 <span>PLAYLIST</span>
                 <h4 className="headerLike">
                   {(!params?.playlistId && "Liked Songs") || name}
                 </h4>
-                <span> Diego - 4 songs</span>
+                <span>
+                  {" "}
+                  Diego{" "}
+                  {likedSongs.length === 1
+                    ? "• 1 song"
+                    : likedSongs.length > 1
+                    ? "• " + likedSongs.length + " songs"
+                    : ""}
+                </span>
               </span>
             </div>
           </div>
@@ -118,28 +128,30 @@ const LikePage = () => {
         <div className="like-content-album">
           <div>
             <div className="padding-content">
-              <div className="buttons-row">
-                <div className="play-button">
-                  <div className="play">
-                    <i className="bi bi-play-fill" />
+              {likedSongs.length > 0 && (
+                <div className="buttons-row">
+                  <div className="play-button">
+                    <div className="play">
+                      <i className="bi bi-play-fill" />
+                    </div>
+                  </div>
+
+                  <div
+                    className="dropdown-menu"
+                    aria-labelledby="dropdownMenuLink"
+                  >
+                    <a className="dropdown-item" href="#">
+                      Action
+                    </a>
+                    <a className="dropdown-item" href="#">
+                      Another action
+                    </a>
+                    <a className="dropdown-item" href="#">
+                      Something else here
+                    </a>
                   </div>
                 </div>
-
-                <div
-                  className="dropdown-menu"
-                  aria-labelledby="dropdownMenuLink"
-                >
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </div>
-              </div>
+              )}
 
               {likedSongs.length > 0 &&
                 likedSongs.map((song, index) => {
@@ -156,6 +168,7 @@ const LikePage = () => {
                     />
                   );
                 })}
+              {likedSongs.length === 0 && <NoLikedSongs />}
               {/* <div className="row d-flex">
                     <div className="col-12 col-md-12 col-lg-12 col-xl-10">
                       <div className="col-12 d-flex flex-column mb-0 background-list">
