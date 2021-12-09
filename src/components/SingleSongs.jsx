@@ -6,15 +6,21 @@ import { useEffect, useState } from "react";
 import { getSongInformation, getSongImage, playSong } from "../store/actions/index.js";
 
 function SingleSongs({ song, index, img, album }) {
+
+  const likedSongs = useSelector(state => state.favoritesSongs);
+
+
   const [liked, setLiked] = useState(false);
 
+
+  //data[index].id
   const fetchLikes = (likedSong, method, id) => {
     likedSong.album = album;
     delete likedSong?.album?.album;
     delete likedSong.album?.tracks;
     delete likedSong.album?.artist;
 
-    console.log(JSON.stringify(likedSong));
+    // console.log(JSON.stringify(likedSong));
 
 
     let url = "https://spotify-be-app.herokuapp.com/likes/" ;
@@ -31,7 +37,7 @@ function SingleSongs({ song, index, img, album }) {
         body: JSON.stringify(likedSong),
       })
         .then((response) => {
-          console.log(response);
+          
           return response.json();
         })
         .then(console.log("liked"));
@@ -51,6 +57,19 @@ function SingleSongs({ song, index, img, album }) {
   const dispatch = useDispatch();
 
   useEffect(() => {}, [liked]);
+
+  useEffect(() => {
+    if (likedSongs.length>0 ) {
+      console.log( 'dasdasd');
+
+      // setLiked(likedSongs.some((likedSong) => likedSong.id === song.id));
+      if(likedSongs.filter((song => song.id === song.id))){
+        setLiked(true);
+        console.log("liked");
+      };
+    }
+    
+  }, []);
   return (
     <div
       className="col-12 d-flex flex-column mb-0 background-list"
