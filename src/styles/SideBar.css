@@ -38,7 +38,8 @@ html {
 }
 
 .music-container {
-  background: linear-gradient(#410707, #000000) !important;
+  /* background: linear-gradient(#410707, #000000) !important; */
+  background: #121212 !important;
   height: calc(100vh - 100px);
   overflow-x: hidden;
   width: calc(100% - 260px);
@@ -377,12 +378,14 @@ li {
 .main-content-album {
   width: 100%;
   min-height: 80vh;
-  background: rgb(31, 31, 31);
-  background: linear-gradient(
+  /* background: rgb(31, 31, 31); */
+  /* background: linear-gradient(
     0deg,
     rgba(31, 31, 31, 1) 75%,
     rgba(139, 140, 140, 1) 100%
-  );
+  ); */
+  background: #121212 !important;
+
   overflow-y: hidden;
   margin-top: -16px;
 }

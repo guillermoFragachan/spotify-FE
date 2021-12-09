@@ -8,6 +8,8 @@
 
 .like-container {
   background: linear-gradient(#4e3998, #000000) !important;
+
+
   height: calc(100vh - 100px);
   overflow-x: hidden;
   width: calc(100% - 260px);
@@ -17,7 +19,8 @@
 .like-content-album {
   width: 100%;
   min-height: 80vh;
-  background: linear-gradient(#21163b, #121212);
+  /* background: linear-gradient(#21163b, #121212); */
+  background: #121212 !important;
   /* background: rgb(31, 31, 31); */
   /* background: linear-gradient(
       0deg,
