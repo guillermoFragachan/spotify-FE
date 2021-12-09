@@ -4,38 +4,39 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const SideBar = ({ children }) => {
-
   const [playlist, setPlaylist] = useState([]);
 
   const creatPlaylist = () => {
-
-    const newPlaylist = {name: "playlist"}
+    const newPlaylist = { name: "playlist" };
     const url = "https://spotify-be-app.herokuapp.com/playlist";
-    fetch(url, {body: JSON.stringify(newPlaylist), method: "POST", headers: {'Content-Type': 'application/json'}})
-    .then(data => {
+    fetch(url, {
+      body: JSON.stringify(newPlaylist),
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    }).then((data) => {
       console.log(data);
-      fetchPLaylist()
+      fetchPLaylist();
       console.log(playlist.length);
-    })
-  }
+    });
+  };
 
   const fetchPLaylist = () => {
     const url = "https://spotify-be-app.herokuapp.com/playlist";
     fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      setPlaylist(data);
-    })
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setPlaylist(data);
+      });
+  };
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchPLaylist();
-  }, [])
+  }, []);
 
-  useEffect(() => {}, [playlist])
+  useEffect(() => {}, [playlist]);
   return (
     <div className="aside-bar">
       <div className=" position-aside">
@@ -77,7 +78,8 @@ const SideBar = ({ children }) => {
         <div>
           <div
             className={
-              pathname === "/library/playlists"
+              pathname === "/library/playlists" ||
+              pathname === "/library/albums"
                 ? `d-flex align-items-center justify-content-start section-selected-style section-selected-style-active`
                 : "d-flex align-items-center justify-content-start section-selected-style"
             }
@@ -90,9 +92,9 @@ const SideBar = ({ children }) => {
         <div>
           <div className="d-flex align-items-center justify-content-start section-selected-style-list-bottom">
             <i className="bi bi-plus-square-fill icons-color-size" />
-            <p className="section-side"
-            onClick={() => creatPlaylist()}
-            >Create Playlist</p>
+            <p className="section-side" onClick={() => creatPlaylist()}>
+              Create Playlist
+            </p>
           </div>
         </div>
         <div>
@@ -111,19 +113,16 @@ const SideBar = ({ children }) => {
         <hr className="hr-styled" />
 
         <ul id="scrollable-section">
-          
-          {
-          playlist &&
-          playlist.map(playlist => {
-            return (
-              <a href>
-                <li 
-                onClick={() => navigate(`/playlist/${playlist._id}`)}
-                
-                >{playlist.name}</li>
-              </a>
-            );
-          })}
+          {playlist &&
+            playlist.map((playlist) => {
+              return (
+                <a href>
+                  <li onClick={() => navigate(`/playlist/${playlist._id}`)}>
+                    {playlist.name}
+                  </li>
+                </a>
+              );
+            })}
         </ul>
         <div className="d-flex align-items-baseline">
           <a href>

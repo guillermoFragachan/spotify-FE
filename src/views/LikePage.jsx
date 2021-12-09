@@ -2,7 +2,9 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Songs from "../components/Songs";
 import { useParams } from "react-router";
-import NoLikedSongs from "../components/NoLikedSongs";
+import PlaceHolder  from "../components/PlaceHolder";
+
+import Song from "../svg/Song.svg"
 
 const LikePage = () => {
   const params = useParams();
@@ -169,7 +171,7 @@ const LikePage = () => {
                     />
                   );
                 })}
-              {likedSongs.length === 0 && <NoLikedSongs />}
+              {likedSongs.length === 0 && <PlaceHolder svg={Song} title={"Songs you like will appear here"} description={"Save songs by tapping the heart icon."} button={"FIND SONGS"} />}
               {/* <div className="row d-flex">
                     <div className="col-12 col-md-12 col-lg-12 col-xl-10">
                       <div className="col-12 d-flex flex-column mb-0 background-list">

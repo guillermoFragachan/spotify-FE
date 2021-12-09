@@ -5,7 +5,8 @@ import {
   LATEST_SEARCHES,
   LATEST_RESULTS,
   TOGGLE_LOADER,
-  PLAY_SONG,
+  LIKED_ALBUMS,
+  PLAY_SONG
 } from "../actions/index.js";
 
 const mainReducer = (state = initialState, action) => {
@@ -43,6 +44,11 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         loader: payload,
+      };
+    case LIKED_ALBUMS:
+      return {
+        ...state,
+        likedAlbums: payload,
       };
     case PLAY_SONG:
       return {
