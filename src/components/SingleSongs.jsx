@@ -1,56 +1,49 @@
 import React from "react";
 
-
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 
-import {getSongInformation, getSongImage} from '../store/actions/index.js'
-import {parse, stringify, toJSON, fromJSON} from 'flatted';
-
+import { getSongInformation, getSongImage } from "../store/actions/index.js";
+import { parse, stringify, toJSON, fromJSON } from "flatted";
 
 function SingleSongs({ song, index, img, album }) {
-
-  const [liked, setLiked] = useState(false)
+  const [liked, setLiked] = useState(false);
 
   const fetchLikes = (likedSong) => {
-    likedSong.album = album
-    delete likedSong.album.album
-    delete likedSong.album.tracks
-    delete likedSong.album.artist
-    
-    console.log(JSON.stringify(likedSong))
-    
-    const url = 'http://localhost:3001/likes'
+    likedSong.album = album;
+    delete likedSong.album.album;
+    delete likedSong.album.tracks;
+    delete likedSong.album.artist;
+
+    console.log(JSON.stringify(likedSong));
+
+    const url = "http://localhost:3001/likes";
     fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: JSON.stringify(likedSong)
-      
+      body: JSON.stringify(likedSong),
     })
-    .then((response) => {
-      console.log(response)
-      return response.json()})
-    .then(
-      console.log('liked')
-    )
-    
-    
-  }
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then(console.log("liked"));
+  };
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-
-  useEffect(() => {
-
-  }, [liked])
+  useEffect(() => {}, [liked]);
   return (
-    <div className="col-12 d-flex flex-column mb-0 background-list" onClick={()=>{
-      dispatch(getSongInformation(song))
-      dispatch(getSongImage(img))
-    }}>
+    <div
+      className="col-12 d-flex flex-column mb-0 background-list"
+      onClick={() => {
+        dispatch(getSongInformation(song));
+        dispatch(getSongImage(img));
+      }}
+    >
       <div className="d-flex justify-content-between">
         <div className="d-flex">
           <div className="d-flex align-items-center justify-content-center">
@@ -63,26 +56,33 @@ function SingleSongs({ song, index, img, album }) {
             />
             <div className="d-flex flex-column">
               <p className="line-breaker">{song.title_short}</p>
-              <span className="explicit-content">E</span>
+              {song.explicit_lyrics === true && (
+                <span className="explicit-content">E</span>
+              )}
             </div>
           </div>
         </div>
-        
+
         <div className="d-flex">
           <div className="d-flex flex-row">
-            {
-              liked ? (<i class="bi bi-heart-fill liked mr-5" onClick={()=>{
-                setLiked(false)
-              
-              }} ></i>):(<i class="bi bi-heart unliked mr-5" onClick={()=>{
-                // console.log(JSON.stringify(song))
-                fetchLikes(song)
-                setLiked(true)
+            {liked ? (
+              <i
+                class="bi bi-heart-fill liked mr-5"
+                onClick={() => {
+                  setLiked(false);
+                }}
+              ></i>
+            ) : (
+              <i
+                class="bi bi-heart unliked mr-5"
+                onClick={() => {
+                  // console.log(JSON.stringify(song))
+                  fetchLikes(song);
+                  setLiked(true);
+                }}
+              ></i>
+            )}
 
-              }} ></i>)
-            }
-            
-            
             <p className="views">2:30</p>
           </div>
         </div>
@@ -90,6 +90,5 @@ function SingleSongs({ song, index, img, album }) {
     </div>
   );
 }
-
 
 export default SingleSongs;
