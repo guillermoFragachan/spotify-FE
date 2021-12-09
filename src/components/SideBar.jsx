@@ -77,11 +77,11 @@ const SideBar = ({ children }) => {
         <div>
           <div
             className={
-              pathname === "/library/albums"
+              pathname === "/library/playlists"
                 ? `d-flex align-items-center justify-content-start section-selected-style section-selected-style-active`
                 : "d-flex align-items-center justify-content-start section-selected-style"
             }
-            onClick={() => navigate("/library/albums")}
+            onClick={() => navigate("/library/playlists")}
           >
             <i className="bi bi-music-note-list icons-color-size" />
             <p className="section-side">Your Library</p>
