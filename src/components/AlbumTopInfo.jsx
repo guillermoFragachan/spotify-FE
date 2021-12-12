@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function AlbumTopInfo({ albumInfo, artistInfo, length }) {
+  
   const navigate = useNavigate();
+
+  const fancyTimeFormat = (duration) => {
+    // Hours, minutes and seconds
+    var hrs = ~~(duration / 3600);
+    var mins = ~~((duration % 3600) / 60);
+    var secs = ~~duration % 60;
+
+    // Output like "1:01" or "4:03:59" or "123:03:59"
+    var ret = "";
+
+    if (hrs > 0) {
+      ret += "" + hrs + " hr " + (mins < 10 ? "0" : "");
+    }
+
+    ret += mins + " " + "min"
+    return ret;
+  }
 
   return (
     <div className="col-12 d-flex">
@@ -56,14 +74,12 @@ function AlbumTopInfo({ albumInfo, artistInfo, length }) {
             {artistInfo.name}
           </h2>
           <span className="text-muted" style={{ fontSize: 14, marginLeft: 5 }}>
-            • {albumInfo.fans} • {length} songs , 1 hr 19 min
+            • Followers {albumInfo.fans} • {length} songs , {fancyTimeFormat(albumInfo.duration)}
           </span>
         </div>
       </div>
     </div>
   );
 }
-
-
 
 export default AlbumTopInfo;
