@@ -79,7 +79,11 @@ const Artist = () => {
     <div className="music-container">
       <section
         id="navbar"
-        style={{ backgroundImage: `url(${artistInfo.picture_xl})` }}
+        style={{
+          backgroundImage: `url(${artistInfo.picture_xl})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
       >
         <div className="container-fluid">
           <nav className="navbar navbar-expand-lg navbar-dark bg-svideo-dark">

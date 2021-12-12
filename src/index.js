@@ -12,6 +12,7 @@ import "./styles/SideBar.css";
 import "./styles/HomePage.css";
 import "./styles/LikePage.css";
 import "./styles/LibraryPage.css"
+import "./styles/GeneralCard.css"
 
 ReactDOM.render(
   <Provider store={configureStore}>

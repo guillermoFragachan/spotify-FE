@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import Loader from "../components/Loader";
+import GeneralCard from "../components/GeneralCard";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -16,7 +17,6 @@ const Home = () => {
       .then((response) => response.json())
       .then((data) => {
         setSongs(data.data);
-        // console.log(data.data, 'try')
       });
   };
 
@@ -27,7 +27,6 @@ const Home = () => {
       .then((response) => response.json())
       .then((data) => {
         setRecentSongs(data.data);
-        console.log(data.data, "try");
       });
   };
   useEffect(() => {
