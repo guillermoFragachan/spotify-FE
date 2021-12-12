@@ -1,0 +1,37 @@
+.general-card {
+  width: 200px;
+  height: 280px;
+  padding: 16px;
+  background: #171717;
+  transition: 0.3s ease-in-out;
+}
+
+.general-card:hover {
+  background: #282828;
+}
+
+.general-card-img {
+  width: 170px;
+  height: 170px;
+  margin-bottom: 16px;
+}
+
+.general-card-title {
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 700;
+  letter-spacing: normal;
+  line-height: 24px;
+  text-transform: none;
+}
+
+.general-card-title.span {
+  color: #b3b3b3;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 16px;
+  text-transform: none;
+}

@@ -19,7 +19,7 @@ const LikePage = () => {
       .then((response) => response.json())
       .then((data) => {
         setLikedSongs(data);
-        console.log(data, "try");
+       
       });
   };
   const fetchPlaylistSongs = (playlistId) => {
@@ -27,7 +27,7 @@ const LikePage = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data, "try");
+      
         setLikedSongs(data.songs);
         setName(data.name);
         if (data.songs[0]) {

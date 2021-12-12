@@ -38,7 +38,6 @@ html {
 }
 
 .music-container {
-  /* background: linear-gradient(#410707, #000000) !important; */
   background: #121212 !important;
   height: calc(100vh - 100px);
   overflow-x: hidden;
@@ -239,6 +238,10 @@ li {
 .upper-title {
   color: white;
   text-decoration: initial !important;
+  max-width: 70px;
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  white-space: nowrap;
 }
 
 .upper-title:hover {

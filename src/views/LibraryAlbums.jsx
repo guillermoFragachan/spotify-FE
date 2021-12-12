@@ -17,7 +17,7 @@ function LibraryAlbums() {
   }, []);
 
   return (
-    <div className="like-container">
+    <div className="music-container">
       <section id="navbar">
         <div className="container-fluid">
           <NavigationLibrary />

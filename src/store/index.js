@@ -17,7 +17,8 @@ export const initialState = {
   loader: false,
   songInformation: null,
   songImage: null,
-  songPlaying: false
+  songPlaying: false,
+  favoriteSongs: []
 };
 const configureStore = createStore(
   mainReducer,
