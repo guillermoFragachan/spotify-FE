@@ -592,3 +592,25 @@ li {
   text-decoration: underline !important;
   color: white;
 }
+
+.hoverShowButton{
+  display: flex;
+  align-items: center;
+
+}
+
+
+.hoverShowButton > button{
+  display:none;
+
+}
+
+.hoverShowButton:hover > button{
+  display: flex !important;
+  align-items: center;
+  height: 30px;
+  font-size: 15px;
+  
+
+}
+
