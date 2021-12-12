@@ -84,6 +84,26 @@ export const getLikedAlbums = () => {
 }
 
 
+export const favoriteSongs = (songs) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_BE_URL}/likes`
+      );
+      if (response.ok) {
+        const data = await response.json();
+        // console.log(data, "REDUX")
+        dispatch({
+          type: FAVORITE_SONGS,
+          payload: data,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
 
 export const getSongInformation = (selectedSong) => ({
   type: GET_SONG_INFO,
@@ -111,7 +131,4 @@ export const playSong = (songStatus) => ({
   payload: songStatus
 })
 
-export const favoriteSongs = (songs) => ({
-  type: FAVORITE_SONGS,
-  payload: songs
-})
+

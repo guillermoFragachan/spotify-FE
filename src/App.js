@@ -8,9 +8,18 @@ import Search from "./views/Search";
 import LikePage from "./views/LikePage";
 import LibraryAlbums from "./views/LibraryAlbums";
 import LibraryPlaylists from "./views/LibraryPlaylists"
+import { useEffect } from "react";
+import {favoriteSongs} from './store/actions/'
+import { useDispatch } from 'react-redux'
 
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(favoriteSongs());
+  }, []);
   return (
     <BrowserRouter>
       <div className="container-master">
