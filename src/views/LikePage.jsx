@@ -157,7 +157,7 @@ const LikePage = () => {
 
               {likedSongs.length > 0 &&
                 likedSongs.map((song, index) => {
-                  console.log(song);
+                  // console.log(song);
                   return (
                     <Songs
                       index={index}

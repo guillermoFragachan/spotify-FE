@@ -43,7 +43,7 @@ function SingleSongs({ song, index, img, album }) {
           
           return response.json();
         })
-        .then(console.log("liked"));
+        
     } else {
       fetch(urlDelete, {
         method: "DELETE",

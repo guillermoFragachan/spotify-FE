@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-
+import Button from 'react-bootstrap/Button'
 import { useLocation, useNavigate } from "react-router-dom";
 
 const SideBar = ({ children }) => {
@@ -14,7 +14,7 @@ const SideBar = ({ children }) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     }).then((data) => {
-      console.log(data);
+      // console.log(data);
       fetchPLaylist();
       console.log(playlist.length);
     });
@@ -25,10 +25,22 @@ const SideBar = ({ children }) => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setPlaylist(data);
       });
   };
+
+  const deletePlaylist = (id) => {
+    const newPlaylist = { name: "playlist" };
+    const url = "https://spotify-be-app.herokuapp.com/playlist/" + id;
+    fetch(url, {
+      method: "DELETE",
+    }).then((data) => {
+      
+      fetchPLaylist();
+      console.log(playlist.length);
+    });
+  }
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -117,8 +129,13 @@ const SideBar = ({ children }) => {
             playlist.map((playlist) => {
               return (
                 <a href>
-                  <li onClick={() => navigate(`/playlist/${playlist._id}`)}>
-                    {playlist.name}
+                  <li className="d-flex justify-content-between hoverShowButton" onClick={() => navigate(`/playlist/${playlist._id}`)}>
+                    <span>{playlist.name}</span>
+                    <Button className="deleteButton" variant="danger" onClick={()=>{
+                      console.log(playlist._id)
+                      deletePlaylist(playlist._id)
+
+                    }}><span>delete</span></Button>
                   </li>
                 </a>
               );
