@@ -7,7 +7,7 @@ import { getSongInformation, getSongImage, playSong } from "../store/actions/ind
 
 function SingleSongs({ song, index, img, album }) {
 
-  const likedSongs = useSelector(state => state.favoritesSongs);
+  const {favoriteSongs} = useSelector(state => state);
 
 
   const [liked, setLiked] = useState(false);
@@ -56,20 +56,23 @@ function SingleSongs({ song, index, img, album }) {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {}, [liked]);
+  useEffect(() => {
+    
+  }, [liked]);
 
   useEffect(() => {
-    if (likedSongs.length>0 ) {
-      console.log( 'dasdasd');
+    // console.log(favoriteSongs);
+    
+    if (favoriteSongs.length > 0) {
+      // console.log( 'dasdasd');
 
       // setLiked(likedSongs.some((likedSong) => likedSong.id === song.id));
-      if(likedSongs.filter((song => song.id === song.id))){
+      if(favoriteSongs.find((s => s.id === song.id))){
         setLiked(true);
-        console.log("liked");
       };
     }
     
-  }, []);
+  }, [favoriteSongs]);
   return (
     <div
       className="col-12 d-flex flex-column mb-0 background-list"
@@ -77,6 +80,7 @@ function SingleSongs({ song, index, img, album }) {
         dispatch(getSongInformation(song));
         dispatch(getSongImage(img));
         dispatch(playSong(false));
+        
       }}
     >
       <div className="d-flex justify-content-between">

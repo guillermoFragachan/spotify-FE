@@ -92,7 +92,7 @@ export const favoriteSongs = (songs) => {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log(data, "REDUX")
+        // console.log(data, "REDUX")
         dispatch({
           type: FAVORITE_SONGS,
           payload: data,
