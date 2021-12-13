@@ -70,18 +70,16 @@ const PlayerBar = () => {
            <i className="bi bi-skip-start-fill icons-color-size-before" />
            {
              isPlaying ? (
-              <i className={"bi bi-pause-fill icons-color-size" } onClick={()=>{
+              <i className={"bi bi-pause-circle-fill icons-color-size" } onClick={()=>{
                 setIsPlaying(false)
                 refs.current.pause()
                 console.log('paused')
 
               }}/>
              ):(
-              <i className={"bi bi-play-fill icons-color-size"} onClick={()=>{
+              <i className={"bi bi-play-circle-fill icons-color-size"} onClick={()=>{
                 setIsPlaying(true)
                 refs.current.play()
-                
-
               }} />
              )
            }

@@ -7,7 +7,7 @@ import Album from "./views/Album";
 import Search from "./views/Search";
 import LikePage from "./views/LikePage";
 import LibraryAlbums from "./views/LibraryAlbums";
-import LibraryPlaylists from "./views/LibraryPlaylists"
+import LibraryPlaylists from "./views/LibraryPlaylists";
 
 
 function App() {
@@ -31,5 +31,7 @@ function App() {
     </BrowserRouter>
   );
 }
+
+
 
 export default App;
