@@ -1,8 +1,17 @@
+@font-face {
+  font-family: circularFont;
+  src: url(/src/styles/fonts/CircularStd-Bold.otf);
+}
+
+:root, body, h1, h2, h3, h4, h5, h6, span, a, div{
+  font-family: circularFont !important;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #fff !important;
@@ -12,3 +21,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+

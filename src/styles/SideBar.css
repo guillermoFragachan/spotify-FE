@@ -595,21 +595,31 @@ li {
 
 .hoverShowButton{
   display: flex;
-  align-items: center;
+  
 
+}
+.hoverShowButton:hover{
+  background: #2a2c2f;
+  border-radius: 3px;
+  opacity: 1;
 }
 
 
-.hoverShowButton > button{
+.hoverShowButton > i{
   display:none;
 
 }
+.hoverShowButton > span{
+  cursor: pointer;
 
-.hoverShowButton:hover > button{
+}
+
+.hoverShowButton:hover > i{
   display: flex !important;
   align-items: center;
-  height: 30px;
-  font-size: 15px;
+  /* height: 30px; */
+  /* font-size: 15px; */
+  cursor: pointer;
   
 
 }

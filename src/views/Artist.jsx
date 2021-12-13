@@ -124,7 +124,7 @@ const Artist = () => {
                     />
                     <span className="d-inline-block">Diego 'Ziba' Balack</span>
                   </a>
-                  <div
+                  {/* <div
                     className="dropdown-menu"
                     aria-labelledby="dropdownMenuLink"
                   >
@@ -137,7 +137,7 @@ const Artist = () => {
                     <a className="dropdown-item" href="#">
                       Something else here
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
