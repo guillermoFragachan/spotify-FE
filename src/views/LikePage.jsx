@@ -75,7 +75,7 @@ const LikePage = () => {
                     />
                     <span className="d-inline-block">Diego 'Ziba' Balack</span>
                   </a>
-                  <div
+                  {/* <div
                     className="dropdown-menu"
                     aria-labelledby="dropdownMenuLink"
                   >
@@ -88,7 +88,7 @@ const LikePage = () => {
                     <a className="dropdown-item" href="#">
                       Something else here
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

@@ -131,11 +131,17 @@ const SideBar = ({ children }) => {
                 <a href>
                   <li className="d-flex justify-content-between hoverShowButton" onClick={() => navigate(`/playlist/${playlist._id}`)}>
                     <span>{playlist.name}</span>
-                    <Button className="deleteButton" variant="danger" onClick={()=>{
+                    {/* <Button className="deleteButton" variant="danger" onClick={()=>{
                       console.log(playlist._id)
                       deletePlaylist(playlist._id)
 
-                    }}><span>delete</span></Button>
+                    }}><span>delete</span></Button> */}
+                    <i class="bi bi-x deleteButton" onClick={()=>{
+                      console.log(playlist._id)
+                      deletePlaylist(playlist._id)
+
+                    }}></i>
+
                   </li>
                 </a>
               );
